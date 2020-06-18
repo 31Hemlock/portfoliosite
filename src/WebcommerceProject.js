@@ -17,7 +17,7 @@ function WebcommerceProject(props) {
                 <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> In college I worked on a three person group project to create an e-commerce website complete with <b>PHP</b> scripting and an <b>SQL</b> backend. My personal contributions to the project are shown in the video. The website allows users to log in, find games to purchase or rent, and order them. It maintains their cart and purchase history in the SQL database, and also allows admins to edit game information natively without touching SQL code. Each of the forms has error-checking and submits to the database.</p>
                 <h4>Source Code</h4>
                 <p>
-                The source code is available <a href="https://github.com/31Hemlock/WebcommerceProject">here.</a>
+                The source code is available <a target="_blank" href="https://github.com/31Hemlock/WebcommerceProject">here.</a>
                 </p>
 
             </div>

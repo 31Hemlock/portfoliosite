@@ -1,6 +1,6 @@
 {
-  "homepage": "http://31hemlock.github.io/portfoliosite",
   "name": "portfoliosite",
+  "homepage": "http://31hemlock.github.io/portfoliosite",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

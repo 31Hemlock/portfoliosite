@@ -18,7 +18,7 @@ function ElectronChess(props) {
                 <p style={{textAlign:"left", padding:'3%', paddingTop:'0%;'}}> While I use <b>JavaScript</b> to display all frontend information, the backend analysis portion is written in <b>Python</b> - I analyze each move from the rated games on the account, then send the data to a MongoDB database. From the database, HighCharts and Chessground are fed data to create charts and board states.</p>
                 <h4>Source Code</h4>
                 <p>
-                The source code is available <a href="https://github.com/31Hemlock/ChessAnalytics">here</a>.
+                The source code is available <a target="_blank" href="https://github.com/31Hemlock/ChessAnalytics">here</a>.
                 </p>
             </div>
             

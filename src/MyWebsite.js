@@ -14,7 +14,7 @@ function MyWebsite(props) {
                 <h3 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Purpose: Explain my coding portfolio to a random person. </h3>
                 <p style={{textAlign:"left", padding:'3%', paddingTop:'0%;'}}> I made this website to house all of my coding projects and explain them to potential employers. It's powered by <b>React</b> and is functional on mobile and desktop.</p>
                 <h4 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Source Code. </h4>
-                <p style={{textAlign:"left", padding:'3%', paddingTop:'0%;'}}> The source code is available <a href="https://github.com/31Hemlock/portfoliosite">here.</a></p>
+                <p style={{textAlign:"left", padding:'3%', paddingTop:'0%;'}}> The source code is available <a target="_blank" href="https://github.com/31Hemlock/portfoliosite">here.</a></p>
 
             </div>
             

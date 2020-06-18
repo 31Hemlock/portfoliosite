@@ -25,7 +25,7 @@ function PyDataManipulation(props) {
                     For the daily data, I scrape <i>Wunderground's</i> website with Firefox driven by <b>Selenium WebDriver</b>. The script that does this, <i>Get Weather From Day</i>, gets called repeatedly by the script <i>Get All Recent Dates</i> until the main data file, 'WeatherData.csv', is up to date. This script runs once a day just before 12:00 AM on a <b>Raspberry Pi</b> to gather the data required to make a prediction.</p>
 
                 <h4 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Source Code </h4>
-                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> The source code is available <a href="https://github.com/31Hemlock/NovaRainBot">here.</a></p>
+                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> The source code is available <a target="_blank" href="https://github.com/31Hemlock/NovaRainBot">here.</a></p>
 
             </div>
             

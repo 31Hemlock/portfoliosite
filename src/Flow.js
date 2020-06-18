@@ -26,7 +26,7 @@ function Flow(props) {
                 </p>
                 <h4>Source Code</h4>
                 <p>
-                The source code is available <a href="https://github.com/31Hemlock/Flow">here</a>.
+                The source code is available <a target="_blank" href="https://github.com/31Hemlock/Flow">here</a>.
                 </p>
 
             </div>

@@ -14,7 +14,7 @@ function Excel(props) {
             <img src={cover_img} style={{width:"90%", height:'auto'}}></img>
             <div className="block">
                 <h3 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Excel macros and scripting.</h3>
-                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> Attached to <a href="https://github.com/31Hemlock/ExcelSheets" download>this link</a> are some of my Excel spreadsheets that contain advanced formulas or macros.</p>
+                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> Attached to <a target="_blank" href="https://github.com/31Hemlock/ExcelSheets" download>this link</a> are some of my Excel spreadsheets that contain advanced formulas or macros.</p>
 
             </div>
             
