@@ -15,19 +15,21 @@ import WebcommerceProject from './modules/WebcommerceProject';
 import MyWebsite from './modules/MyWebsite';
 import useWindowDimensions from './components/utils/useWindowDimensions';
 import { Dimensions } from './components/utils/useWindowDimensions';
+import MobileSidebar from './modules/MobileSidebar';
 
 function App() {
   const { orientation } = useWindowDimensions();
   const orientationString = orientation;
+  console.log(orientationString);
   return (
     <Router>
       <div className="grid grid-cols-1 grid-rows-1 w-full h-full object-cover overflow-hidden">
-        <img src={logo} className="col-start-1 row-start-1 object-cover" alt="logo" />
-        <div className="App col-start-1 row-start-1 ">
-          <div>
-            <Sidebar orient={orientationString} />
+        <img src={logo} className="col-start-1 row-start-1 w-full h-full object-cover relative" alt="logo" />
+        <div className={`flex-grow relative m-auto w-[80%] max-w-[1400px] max-h-[90vh] flex  row-start-1 col-start-1 ${orientationString === "landscape" ? "flex-row" : "flex-col"}`}>
+            <div className={`${orientationString === "landscape" ? " w-full max-w-[400px]" : "w-full"} flex-shrink-0 flex-grow overflow-scroll hide-scrollbar bg-sidebar-grey`}>
+              {orientationString === "landscape" ? <Sidebar /> : <MobileSidebar />}
           </div>
-          <div className="bg-[#e6e6e6] mb-0" >
+          <div className={`${orientationString == "landscape" ? "col-start-1 row-start-1" : "col-start-1 row-start-2"} flex-grow  bg-[#e6e6e6] mb-0 col-start-2 w-full`} >
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/portfoliosite" element={<Home />} />

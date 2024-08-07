@@ -7,21 +7,36 @@ interface SidePopProps {
     numTitles: number
     title: string
     links: string[]
-    orient: string
+    mobileShowMenu?: boolean
+    isMobile: boolean | undefined
 }
 
-const SidePop: React.FC<SidePopProps> = ({ subtitles, title, links }) => {
+const SidePop: React.FC<SidePopProps> = ({ subtitles, title, links, mobileShowMenu, isMobile }) => {
 
     let listItems = subtitles.map((subtitle, index) =>
-        <Link className='subtitle' key={subtitle} to={`/${links[index]}`}>{subtitle}</Link>
+        <Link className='text-subheader-white block w-full py-4 border-b border-sidebar-border mx-auto animateButton transition-all text-center last:border-b-2' key={subtitle} to={`/${links[index]}`}>{subtitle}</Link>
     );
 
-    return (
-        <div className="section">
-            <h5 className="catTitle">{title}</h5>
-            <div className="catSubtitle">{listItems}</div>
-        </div>
-    )
+    if (!isMobile) {
+        return (
+          <div>
+            <div>
+              <h5 className="text-header-white block w-full border-b py-4 text-lg ">{title}</h5>
+              <div className="text-subheader-white font-normal block w-full text-sm font-thin">{listItems}</div>
+            </div>
+          </div>
+        );
+      } else {
+            return (
+              <div>
+                <div>
+                  <h5 className="text-header-white block w-full border-b py-4 text-lg ">{title}</h5>
+                  <div className="text-subheader-white font-normal block w-full text-sm font-thin">{listItems}</div>
+                </div>
+              </div>
+            );
+      }
+    
 }
  
 export default SidePop;
