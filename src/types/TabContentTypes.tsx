@@ -1,7 +1,7 @@
 export interface Section {
   title: string;
   titleStyle: titleStyle
-  content: React.ReactNode;
+  content: React.ReactNode[];
 }
 
 export interface Media {
@@ -14,10 +14,7 @@ export type titleStyle = "header" | "body"
 
 export type TabContentData = {
   media: Media;
-  sections: Array<{
-      title: string;
-      titleStyle: titleStyle
-      content: React.ReactNode;
-  }>;
+  sections: Array<Section>;
+  title: string;
   sourceCode?: string;
 };

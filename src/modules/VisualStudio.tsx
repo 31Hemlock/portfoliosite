@@ -1,28 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { TabContent } from '../TabContent';
+import { TabContentData } from '@/types/TabContentTypes';
 
 function VisualStudio() {
     const coverVidUrl = new URL('../assets/vid/visual_studio.mp4', import.meta.url).href;
-    // Populate the main page.
+
+    const tabContent: TabContentData = {
+        media: {
+          type: 'video',
+          src: coverVidUrl,
+          alt: 'Consulting project',
+        },
+        title: "InvestNMe Consulting Project",
+        sections: [
+          {
+            title: 'Full-stack application in Visual Studio.',
+            titleStyle: 'header',
+            content: 
+            [<p>
+              For this project, our group had to develop an investing assistant application in Visual Studio. 
+              The application takes user preferences, such as how risky they would like their portfolio to be, and builds a 10 year investment portfolio based on that information.
+            </p>]
+          },
+          {
+            title: 'Technology',
+            titleStyle: 'body',
+            content: [<p>
+                The project was coded in Visual Studio and connects to an <b className="font-semibold">Access database</b>, which stores information about different kinds of stocks such as their expected return rate, riskiness value, and social equity.
+                <b className="font-semibold">Visual Basic</b> code receives this data and uses Microsoft's <b className="font-semibold">Solver</b> function to determine the optimal allocation of money based on user preferences.
+
+
+            </p>
+            ],
+          },
+          {
+            title: 'Source Code',
+            titleStyle: 'body',
+            content: [<p>The source code is available <a href="https://github.com/31Hemlock/VisualStudio" target="_blank" rel="noopener noreferrer" className="text-blue-300">here</a>.</p>],
+          },
+        ]
+    };
+    
     return (
-        <div className="mainContent">
-            <h1 style={{padding:"3%", margin_bottom:"0px"}}> InvestNMe Consulting Project </h1>
-            <video id='webcommerce_vid' src={coverVidUrl} style={{width:"90%", height:'auto'}} autoPlay controls></video>
-            <div className="block">
-                <h3>Full-stack application in Visual Studio. </h3>
-                <p> For this project, our group had to develop an investing assistant application in Visual Studio. The application takes user preferences, such as how risky they would like their portfolio to be, and builds a 10 year investment portfolio based on that information.</p>
-                <h4>Technology</h4>
-                <p>
-                    The project was coded in Visual Studio and connects to an <b>Access</b> database, which stores information about different kinds of stocks such as their expected return rate, riskiness value, and social equity. <b>Visual Basic</b> code receives this data and uses Microsoft's <b>Solver</b> function to determine the optimal allocation of money based on user preferences.
-                </p>
-                <h4>Source Code</h4>
-                <p>
-                    The source code is available <a target="_blank" href="https://github.com/31Hemlock/DSSPortfolioOptimization">here</a>.
-                </p>
-            </div>
-            
-        </div>
+        <TabContent {...tabContent} />
     )
 }
  
 export default VisualStudio;
-

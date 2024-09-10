@@ -17,7 +17,7 @@ function Home() {
     const homeSection1: Section = {
         title: "Home",
         titleStyle: "header",
-        content: HomeParagraph1
+        content: [HomeParagraph1]
     }      
 
     const homeSections = [homeSection1]

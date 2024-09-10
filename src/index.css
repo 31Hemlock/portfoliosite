@@ -42,6 +42,61 @@ html, body {
   scrollbar-width: none;  /* Firefox */
 }
 
+.custom-main-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.custom-main-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-main-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #adadad;
+  border-radius: 2px;
+  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0.5;
+}
+
+.custom-main-scrollbar:hover::-webkit-scrollbar,
+.custom-main-scrollbar:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
+.custom-side-scrollbar {
+  direction: rtl;
+}
+
+.custom-side-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.custom-side-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-side-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #adadad;
+  border-radius: 2px;
+  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0.5;
+}
+
+.custom-side-scrollbar:hover::-webkit-scrollbar,
+.custom-side-scrollbar:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
+.item-direction-for-left-scrollbar {
+  direction: ltr;
+}
+
+
+
+
 a {
   color: black;
   text-decoration: inherit;

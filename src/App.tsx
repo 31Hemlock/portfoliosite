@@ -25,11 +25,11 @@ function App() {
     <Router>
       <div className="grid grid-cols-1 grid-rows-1 w-full h-full object-cover overflow-hidden">
         <img src={logo} className="col-start-1 row-start-1 w-full h-full object-cover relative" alt="logo" />
-        <div className={`flex-grow relative m-auto w-[80%] max-w-[1400px] max-h-[90vh] flex  row-start-1 col-start-1 ${orientationString === "landscape" ? "flex-row" : "flex-col"}`}>
-            <div className={`${orientationString === "landscape" ? " w-full max-w-[400px]" : "w-full"} flex-shrink-0 flex-grow overflow-scroll hide-scrollbar bg-sidebar-grey`}>
+        <div className={`flex-grow relative m-auto w-[90%] md:w-[80%] max-w-[1400px] max-h-[95vh] md:max-h-[90vh] flex  row-start-1 col-start-1 ${orientationString === "landscape" ? "flex-row" : "flex-col"}`}>
+            <div className={`${orientationString === "landscape" ? " w-full max-w-[400px] custom-side-scrollbar" : "w-full"} flex-shrink-0 flex-grow overflow-y-auto  bg-sidebar-grey`}>
               {orientationString === "landscape" ? <Sidebar /> : <MobileSidebar />}
           </div>
-          <div className={`${orientationString == "landscape" ? "col-start-1 row-start-1" : "col-start-1 row-start-2"} flex-grow  bg-[#e6e6e6] mb-0 col-start-2 w-full`} >
+          <div className={`${orientationString == "landscape" ? "col-start-1 row-start-1" : "col-start-1 row-start-2"} flex-grow bg-main-content-white mb-0 col-start-2 w-full overflow-y-scroll custom-main-scrollbar`} >
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/portfoliosite" element={<Home />} />

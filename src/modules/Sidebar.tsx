@@ -10,8 +10,8 @@ const Sidebar: React.FC = () => {
 
     return (
         <div className="p-14 bg-sidebar-grey">
-            <Link to='/portfoliosite' className="text-header-white text-4xl font-normal mx-auto w-full">Noah Zaranka</Link>
-            <div className="mt-4">
+            <Link to='/portfoliosite' className="text-header-white text-4xl font-normal mx-auto w-full item-direction-for-left-scrollbar text-center block ">Noah Zaranka</Link>
+            <div className="mt-4 item-direction-for-left-scrollbar">
                 {sideNames.map((name, index) => (
                     <SidePop 
                         key={index} 

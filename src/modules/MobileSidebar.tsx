@@ -17,7 +17,7 @@ const MobileSidebar: React.FC = () => {
     return (
         <>
         <img className=" w-[32px] h-[32px] m-4 cursor-pointer " src={threeBarsUrl} alt="Menu" onClick={() => toggleMobileShowMenu()}/>
-        <Link to='/portfoliosite' className="text-header-white mx-auto w-full text-center block text-3xl" >Noah Zaranka</Link>
+        <Link to='/portfoliosite' className="text-header-white mx-auto w-full text-center block text-3xl pb-4" >Noah Zaranka</Link>
             <div className={`px-16 pb-4 grid transition-all duration-[500ms] ${mobileShowMenu ? "grid-rows-[1fr] opacity-100 blur-none" : "grid-rows-[0fr] opacity-0 blur-xl"}`}>
             <div className="overflow-hidden">
                 {sideNames.map((name, index) => (
@@ -28,6 +28,7 @@ const MobileSidebar: React.FC = () => {
                         subtitles={sideDetails[index]} 
                         links={sideLinks[index]}
                         mobileShowMenu={mobileShowMenu}
+                        setMobileShowMenu={setMobileShowMenu}
                         isMobile={true}
                     />
                 ))}

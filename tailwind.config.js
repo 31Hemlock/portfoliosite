@@ -8,9 +8,10 @@ export default {
     extend: {
       colors: {
         "sidebar-grey": "#262626",
+        "main-content-white": "#e6e6e6f7",
         "header-white": "#e6e6e6",
-        "subheader-white": "#adadad",
-        "sidebar-border": "#4a4a4a",
+        "subheader-white": "#adadadf7",
+        "sidebar-border": "#4a4a4af7",
       },
       fontWeight: {
         thin: "100",
