@@ -1,37 +1,65 @@
-import React, { Component } from 'react';
-
-
-// import cover_img from './assets/img/py_data_manipulation.png'
-
-
-
+import React from 'react';
+import { TabContent } from '../TabContent';
+import { TabContentData } from '@/types/TabContentTypes';
+import { ContentCard } from '@/components/ContentCard';
+import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
+import { CodeLink } from '@/data/CodeLink';
+import { LinkWrapper } from '@/components/LinkWrapper';
+import { SB } from '@/components/utils/SB';
 
 function PyDataManipulation() {
-    // Populate the main page.
+    const coverImgUrl = new URL('../assets/img/py_data_manipulation.png', import.meta.url).href;
+
+    const tabContent: TabContentData = {
+        media: {
+          type: 'image',
+          src: coverImgUrl,
+          alt: 'Code to populate weather data',
+        },
+        title: "Python Data Manipulation",
+        content: 
+        <>
+          <ContentCard>
+            <p className={`${mainHeaderClasses}`}>
+                Obtain detailed hourly weather data for NOVA.
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+                In order to utilize machine learning to find out when it will rain in NOVA, first I needed to gather years of weather data with as many attributes as possible so I could investigate which attributes contributed the most accuracy to the machine learning model.
+                While looking for data online, I found that it was impossible to find one source with a long history of weather data, a ton of attributes, and live hourly updates.
+                Due to this, I gathered my historical weather data from meteorological observational database MADIS and my daily data from Wunderground.
+                Each of these sources gives me data for the Reagan National Airport.
+            </p>
+            <p className={`${leftMainHeaderClasses}`}>
+                Technology
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+                I requested access to the <SB>MADIS</SB> API via email and was granted authorization. 
+                I then retrieved data from 2014 to 2019 in XML format and used the script 'MadisXMLToPandas Daily.py' to translate this data into a <SB>pandas</SB> dataframe and save it to a file.
+            </p>
+            <p className={`${paragraphClasses}`}>
+            For the daily data, I scraped Wunderground's website with Firefox driven by <SB>Selenium WebDriver</SB>.
+            The script that does this, <i>Get Weather From Day</i>, gets called repeatedly by the script <i>Get All Recent Dates</i> until the main data file, 'WeatherData.csv', is up to date.
+            This script runs once a day just before 12:00 AM on a <SB>Raspberry Pi</SB> to gather the data required to make a prediction.
+            </p>
+          </ContentCard>
+          <ContentCard>
+            <p className={`${leftMainHeaderClasses}`}>
+              Source Code
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+            The source code is available <LinkWrapper url={`${CodeLink}NovaRainBot`} text="here"/>.
+            </p>
+          </ContentCard>
+          
+        </>
+    };
+    
     return (
-        <div className="mainContent">
-            <h1 style={{padding:"3%", margin_bottom:"0px"}}> Python Data Manipulation </h1>
-            {/* <img src={cover_img} style={{width:"90%", height:'auto'}}></img> */}
-            <div className="block">
-                <h3 style={{paddingBottom:'2%', border_bottom: "10px solid black"}}>Obtain detailed hourly weather data for NOVA. </h3>
-                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> In order to utilize machine learning to find out when it will rain in NOVA, first I needed to gather years of weather data with as many attributes as possible so I could investigate which attributes contributed the most accuracy to the machine learning model. While looking for data online, I found that it was impossible to find one source with a long history of weather data, a ton of attributes, and live hourly updates. Due to this, I gathered my historical weather data from meteorological observational database <i>MADIS</i> and my daily data from <i>Wunderground</i>. Each of these sources gives me data for the Reagan National Airport.
-                </p>
-                <h4>Technology</h4>
-                <p>
-                    I requested access to the <b>MADIS</b> API in an email and was given the lowest level of authorization (all I needed). I then retrieved data from 2014 to 2019 in XML format and used the script 'MadisXMLToPandas Daily.py' to translate this data into a <b>pandas</b> dataframe and save it to a file.
-
-                </p>
-                <p>
-                    For the daily data, I scrape <i>Wunderground's</i> website with Firefox driven by <b>Selenium WebDriver</b>. The script that does this, <i>Get Weather From Day</i>, gets called repeatedly by the script <i>Get All Recent Dates</i> until the main data file, 'WeatherData.csv', is up to date. This script runs once a day just before 12:00 AM on a <b>Raspberry Pi</b> to gather the data required to make a prediction.</p>
-
-                <h4 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Source Code </h4>
-                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> The source code is available <a target="_blank" href="https://github.com/31Hemlock/NovaRainBot">here.</a></p>
-
-            </div>
-            
-        </div>
+        <TabContent {...tabContent} />
     )
 }
  
 export default PyDataManipulation;
-

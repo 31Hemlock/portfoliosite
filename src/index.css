@@ -29,9 +29,9 @@ html, body {
 }
 
 .animateButton:hover {
-  color:#eee;
+  color:#FCFDFE;
   text-decoration:none;
-  background-color:#2e2e2e;
+  background-color:#2b3135;
 }
 .hide-scrollbar::-webkit-scrollbar {
   display:none; /* Chromium, Safari */
@@ -43,7 +43,7 @@ html, body {
 }
 
 .custom-main-scrollbar::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
@@ -53,7 +53,7 @@ html, body {
 }
 
 .custom-main-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #adadad;
+  background-color: white;
   border-radius: 2px;
   transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
   opacity: 0.5;
@@ -79,7 +79,7 @@ html, body {
 }
 
 .custom-side-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #adadad;
+  background-color: #FCFDFE;
   border-radius: 2px;
   transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
   opacity: 0.5;

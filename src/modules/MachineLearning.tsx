@@ -1,37 +1,58 @@
-import React, { Component } from 'react';
-
-
-// import cover_img from './assets/img/machine_learning.png'
-import PyDataManipulation from './PyDataManipulation';
-
-import { BrowserRouter as Router, Link, Route} from 'react-router-dom'
-
-
-
-
+import React from 'react';
+import { TabContent } from '../TabContent';
+import { TabContentData } from '@/types/TabContentTypes';
+import { ContentCard } from '@/components/ContentCard';
+import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
+import { CodeLink } from '@/data/CodeLink';
+import { LinkWrapper } from '@/components/LinkWrapper';
+import { SB } from '@/components/utils/SB';
 
 function MachineLearning() {
-    // Populate the main page.
+    const coverVidUrl = new URL('../assets/img/machine_learning.png', import.meta.url).href;
+
+    const tabContent: TabContentData = {
+        media: {
+          type: 'image',
+          src: coverVidUrl,
+          alt: 'Machine learning',
+          dims: {h: 944, w: 380}
+        },
+        title: "Machine Learning",
+        content: 
+        <>
+          <ContentCard>
+            <p className={`${mainHeaderClasses}`}>
+            Predict whether it will rain in Northern Virginia.
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+                I feed the data I gather from Python Data Manipulation to a machine learning algorithm that I am still developing.
+            </p>
+            <p className={`${paragraphClasses}`}>
+                The machine learning algorithm is a binary classification model that was trained by my script <i>OverUnderSampling</i>, which utilizes the high-level <SB>Keras</SB> API through <SB>Tensorflow</SB>. 
+                I use a sequential model that outputs to a single-node sigmoid activation layer in order to make my binary ('yes it will rain' or 'no it will not rain') prediction. 
+                While developing the algorithm I noticed it had a tendency to predict the null hypothesis, so I oversampled and undersampled the dataset using <SB>SMOTETomek</SB> from <SB>Imblearn</SB> to create a balanced training set.
+            </p>
+            <p className={`${paragraphClasses}`}>
+                When I finish tweaking the algorithm, I will be sending tweets from my Raspberry Pi to Twitter each morning with my prediction.
+            </p>
+          </ContentCard>
+          <ContentCard>
+            <p className={`${leftMainHeaderClasses}`}>
+              Source Code
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+            The source code is available <LinkWrapper url={`${CodeLink}NovaRainBot`} text="here"/>.
+            </p>
+          </ContentCard>
+          
+        </>
+    };
+    
     return (
-        <Router>
-
-        <div className="mainContent">
-            <h1 style={{padding:"3%", margin_bottom:"0px"}}> Machine Learning </h1>
-            {/* <img src={cover_img} style={{width:"90%", height:'auto'}}></img> */}
-            <div className="block">
-                <h3>Predict whether it will rain in Northern Virginia. </h3>
-                <p style={{marginBottom:'0px'}}> I feed the data I gather from <a href="python-data-manipulation">Python Data Manipulation</a> to a machine learning algorithm that I am still developing.</p>
-                <p style={{marginBottom:'0px'}}> The machine learning algorithm is a binary classification model that was trained by my script <i>OverUnderSampling</i>, which utilizes the high-level <b>Keras</b> API through <b>Tensorflow</b>. I use a sequential model that outputs to a single-node sigmoid activation layer in order to make my binary ('yes it will rain' or 'no it will not rain') prediction. While developing the algorithm I noticed it had a tendency to predict the null hypothesis, so I oversampled and undersampled the dataset using <b>SMOTETomek</b> from <b>Imblearn</b> to create a balanced training set.</p>
-                <p> When I finish tweaking the algorithm, I will be sending tweets from my Raspberry Pi to Twitter each morning with my prediction.</p>
-                <h4>Source Code</h4>
-                <p>The source code is available <a target="_blank" href="https://github.com/31Hemlock/NovaRainBot">here.</a></p>
-
-            </div>
-            
-        </div>
-        </Router>
+        <TabContent {...tabContent} />
     )
 }
  
 export default MachineLearning;
-

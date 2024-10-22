@@ -1,5 +1,5 @@
 const sidePop1 = 'Applications'
-const sideArray1 = ['Electron Chess Analytics', 'Visual Studio']
+const sideArray1 = ['MyFavoriteSport Art Competition', 'Serverless Backend API', 'Electron Chess Analytics', 'Visual Studio', 'ICAF Responsive Design']
 
 const sidePop2 = 'Webapps'
 const sideArray2 = ['Flow', 'Webcommerce Project', 'My Website']

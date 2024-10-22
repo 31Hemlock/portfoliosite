@@ -1,6 +1,11 @@
 import React from 'react';
 import { TabContent } from '../TabContent';
 import { TabContentData } from '@/types/TabContentTypes';
+import { ContentCard } from '@/components/ContentCard';
+import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
+import { CodeLink } from '@/data/CodeLink';
+import { LinkWrapper } from '@/components/LinkWrapper';
+import { SB } from '@/components/utils/SB';
 
 function ElectronChess() {
     const coverVidUrl = new URL('../assets/vid/chess_analytics.mp4', import.meta.url).href;
@@ -9,30 +14,40 @@ function ElectronChess() {
         media: {
           type: 'video',
           src: coverVidUrl,
-          alt: 'Chess analytics video',
+          alt: 'Electron Chess Analytics',
+          dims: {h: 1920, w: 1080}
         },
-        title: "Chess Analytics",
-        sections: [
-          {
-            title: 'View analytics about your style of play.',
-            titleStyle: 'header',
-            content: 
-            [<p>
-              <i>Chess Analytics</i> is an <b className="font-medium">Electron</b>-based application that accepts a Lichess username, analyzes all of the games on the account, and displays the analysis through the libraries HighCharts and Chessground. 
-              Each move is analyzed by Stockfish and uploaded to MongoDB. 
+        title: "Electron Chess Analytics",
+        content: 
+        <>
+          <ContentCard>
+            <p className={`${mainHeaderClasses}`}>
+              View analytics about your style of play.
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+              Chess Analytics is an <SB>Electron</SB>-based application that accepts a <i>Lichess</i> username, analyzes all of the games on the account, and displays the analysis through the libraries <SB>HighCharts</SB> and <SB>Chessground</SB>. 
+              Each move is analyzed by <SB>Stockfish</SB> and uploaded to <SB>MongoDB</SB>. 
               I use this data to give interesting information about the games to the user, such as the percentage of games they won when they castled kingside compared to queenside.
-            </p>, 
-            <p>
-              While I use <b className="font-medium">JavaScript</b> to display all frontend information, the backend analysis portion is written in <b className="font-medium">Python</b> - I analyze each move from the rated games on the account, then send the data to a MongoDB database. 
-              From the database, <b className="font-medium">HighCharts</b> and <b className="font-medium">Chessground</b> are fed data to create charts and board states.
-            </p>],
-          },
-          {
-            title: 'Source Code',
-            titleStyle: 'body',
-            content: [<p>The source code is available <a href="https://github.com/31Hemlock/ChessAnalytics" target="_blank" rel="noopener noreferrer" className="text-blue-300">here</a>.</p>],
-          },
-        ]
+            </p>
+            <p className={`${paragraphClasses}`}>
+              While I use <SB>JavaScript</SB> to display all frontend information, the backend analysis portion is written in <SB>Python</SB> - I analyze each move from the rated games on the account, then send the data to a MongoDB database. 
+              From the database, HighCharts and Chessground are fed data to create charts and board states.
+            </p>
+
+
+          </ContentCard>
+          <ContentCard>
+            <p className={`${leftMainHeaderClasses}`}>
+              Source Code
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+            The source code is available <LinkWrapper url={`${CodeLink}ChessAnalytics`} text="here"/>.
+            </p>
+          </ContentCard>
+          
+        </>
     };
     
     return (

@@ -1,21 +1,50 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { TabContent } from '../TabContent';
+import { TabContentData } from '@/types/TabContentTypes';
+import { ContentCard } from '@/components/ContentCard';
+import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
+import { CodeLink } from '@/data/CodeLink';
+import { LinkWrapper } from '@/components/LinkWrapper';
+import { SB } from '@/components/utils/SB';
 
 function SQL() {
-    // Populate the main page.
-    return (
-        <div className="mainContent">
-            <h1 style={{padding:"3%", margin_bottom:"0px"}}> SQL Webcommerce </h1>
-            <div className="block">
-                <h3 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Fully featured SQL database. </h3>
-                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> For a college project I created an SQL database, complete with triggers, procedures, and an EER diagram that demonstrates the relationships between the tables.</p>
-                <h4 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Source Code</h4>
-                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> The SQL file can be found <a target="_blank" href="https://github.com/31Hemlock/SQL">here</a>.</p>
+    const coverVidUrl = new URL('../assets/img/sql.png', import.meta.url).href;
 
-            </div>
-            
-        </div>
+    const tabContent: TabContentData = {
+        media: {
+          type: 'image',
+          src: coverVidUrl,
+          alt: 'A diagram of an SQL database',
+          dims: {h: 1682, w: 570}
+        },
+        title: "SQL Webcommerce",
+        content: 
+        <>
+          <ContentCard>
+            <p className={`${mainHeaderClasses}`}>
+                Fully featured SQL database.
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+                For a college project I created an SQL database, complete with triggers, procedures, and an EER diagram that demonstrates the relationships between the tables.
+            </p>
+          </ContentCard>
+          <ContentCard>
+            <p className={`${leftMainHeaderClasses}`}>
+              Source Code
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+            The SQL file can be found <LinkWrapper url={`${CodeLink}SQL`} text="here"/>.
+            </p>
+          </ContentCard>
+
+        </>
+    };
+    
+    return (
+        <TabContent {...tabContent} />
     )
 }
  
 export default SQL;
-

@@ -1,27 +1,50 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { TabContent } from '../TabContent';
+import { TabContentData } from '@/types/TabContentTypes';
+import { ContentCard } from '@/components/ContentCard';
+import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
+import { CodeLink } from '@/data/CodeLink';
+import { LinkWrapper } from '@/components/LinkWrapper';
+import { SB } from '@/components/utils/SB';
 
+function Powershell() {
+    const coverVidUrl = new URL('../assets/vid/powershell.mp4', import.meta.url).href;
 
-// import cover_vid from './assets/vid/powershell.mp4'
-
-
-
-
-function Powershell(props) {
-    // Populate the main page.
+    const tabContent: TabContentData = {
+        media: {
+          type: 'video',
+          src: coverVidUrl,
+          alt: 'Powershell',
+          dims: {h: 1920, w:1080}
+        },
+        title: "Powershell Downloader Script",
+        content: 
+        <>
+          <ContentCard>
+            <p className={`${mainHeaderClasses}`}>
+                Download audio files from YouTube.
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+                This script downloads audio files from YouTube using <SB>youtube-dl</SB> and <SB>ffmpeg</SB>, renames them, and places them under my music directory in the proper folder.
+            </p>
+          </ContentCard>
+          <ContentCard>
+            <p className={`${leftMainHeaderClasses}`}>
+              Source Code
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+            The source code is available <LinkWrapper url={`${CodeLink}DLYoutubeMP3`} text="here"/>.
+            </p>
+          </ContentCard>
+          
+        </>
+    };
+    
     return (
-        <div className="mainContent">
-            <h1 style={{padding:"3%", margin_bottom:"0px"}}> Powershell Downloader Script </h1>
-            <div className="block">
-                <h3 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Download audio files from YouTube. </h3>
-                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> This script downloads audio files from YouTube using <b>youtube-dl</b> and <b>ffmpeg</b>, renames them, and places them under my music directory in the proper folder.</p>
-                <h4 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Source Code </h4>
-                <p style={{textAlign:"left", padding:'3%', paddingBottom:'2%'}}> The source code is available <a target="_blank" href="https://github.com/31Hemlock/DLYoutubeMP3">here.</a></p>
-
-            </div>
-            
-        </div>
+        <TabContent {...tabContent} />
     )
 }
  
 export default Powershell;
-

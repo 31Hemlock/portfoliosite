@@ -1,26 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { TabContent } from '../TabContent';
+import { TabContentData } from '@/types/TabContentTypes';
+import { ContentCard } from '@/components/ContentCard';
+import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses, sourceCodeClasses } from '@/types/TabContentTypes';
+import { CodeLink } from '@/data/CodeLink';
+import { LinkWrapper } from '@/components/LinkWrapper';
+import { SB } from '@/components/utils/SB';
 
+function MyWebsite() {
+    const tabContent: TabContentData = {
+        title: "My Website",
+        content: 
+        <>
+          <ContentCard>
+            <p className={`${mainHeaderClasses}`}>
+              A website to display my coding portfolio.
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+                I made this website to house all of my coding projects. It's built to be fast, simple, and easy to maintain.
+            </p>
+            <p className={`${leftMainHeaderClasses}`}>
+                Technology
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+                My website is a <SB>React</SB> app, developed and built with <SB>Vite</SB>. It's coded in <SB>Typescript</SB> and uses <SB>Tailwind CSS</SB>.
+            </p>
 
-
-
-
-
-function MyWebsite(props) {
-    // Populate the main page.
+          </ContentCard>
+          <ContentCard>
+            <p className={`${sourceCodeClasses}`}>
+              Source Code
+            </p>
+            {divider}
+            <p className={`${paragraphClasses}`}>
+                The source code is available <LinkWrapper url={`${CodeLink}portfoliosite`} text="here"/>.
+            </p>
+          </ContentCard>
+        </>
+    };
     return (
-        <div className="mainContent">
-            <h1 style={{padding:"3%", margin_bottom:"0px"}}> My Website </h1>
-            <div className="block">
-                <h3 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Purpose: Explain my coding portfolio to a random person. </h3>
-                <p style={{textAlign:"left", padding:'3%', paddingTop:'0%;'}}> I made this website to house all of my coding projects and explain them to potential employers. It's powered by <b>React</b> and is functional on mobile and desktop.</p>
-                <h4 style={{marginBottom:'2%', border_bottom: "10px solid black"}}>Source Code. </h4>
-                <p style={{textAlign:"left", padding:'3%', paddingTop:'0%;'}}> The source code is available <a target="_blank" href="https://github.com/31Hemlock/portfoliosite">here.</a></p>
-
-            </div>
-            
-        </div>
+        <TabContent {...tabContent} />
     )
 }
  
 export default MyWebsite;
-
