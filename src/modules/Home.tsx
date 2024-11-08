@@ -21,6 +21,8 @@ function Home() {
               Please click through the links in the menu and direct any questions or comments to 31Hemlock@gmail.com.
             </p>
           </ContentCard>
+          {/* <ContentCard>
+          </ContentCard> */}
           
         </>
     };

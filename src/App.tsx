@@ -18,6 +18,8 @@ import useWindowDimensions from './components/utils/useWindowDimensions';
 import MobileSidebar from './modules/MobileSidebar';
 import MFSFrontend from './modules/MFSFrontend';
 import ScrollToTop from './components/utils/ScrollToTop';
+import { PuzzlrTabContent } from './modules/Puzzlr';
+import { TabContent } from './TabContent';
 
 function App() {
   const { orientation } = useWindowDimensions();
@@ -48,6 +50,7 @@ function App() {
               <Route path="/portfoliosite/myfavoritesport-art-competition" element={<MFSFrontend />} />
               <Route path="/portfoliosite/serverless-backend-api" element={<MFSBackend />} />
               <Route path="/portfoliosite/icaf-responsive-design" element={<ICAFFrontend />} />
+              <Route path="/portfoliosite/tabletop-puzzle-game" element={<TabContent {...PuzzlrTabContent} />} />
               <Route path="/portfoliosite/electron-chess-analytics" element={<ElectronChess />} />
               <Route path="/portfoliosite/python-data-manipulation" element={<PyDataManipulation />} />
               <Route path="/portfoliosite/machine-learning" element={<MachineLearning />} />

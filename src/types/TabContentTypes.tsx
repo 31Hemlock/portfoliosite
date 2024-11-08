@@ -27,3 +27,8 @@ export const thinDivider = <div className="border-b border-grey mb-4"/>
 export const subheaderDivider = <div className="border-b border-grey"/>
 export const paragraphClasses = "prose prose-lg pt-4 pb-4"
 export const linkClasses = "text-blue-400 visited:text-purple-500 cursor-pointer"
+
+export const functionClasses = "font-mono text-sm bg-gray-100 px-1 py-0.5 rounded text-gray-700"
+export const objectClasses = "font-mono text-sm bg-gray-50 px-1 py-0.5 rounded text-gray-800"
+export const clickableFunctionClasses = "font-mono text-sm bg-gray-100 px-1 py-0.5 rounded cursor-pointer hover:bg-gray-200 hover:text-blue-600 transition-colors text-blue-800 visited:text-purple-500"
+export const clickableObjectClasses = "font-mono text-sm bg-gray-50 px-1 py-0.5 rounded text-blue-800 cursor-pointer hover:bg-gray-100 hover:text-blue-900 transition-colors visited:text-purple-500"

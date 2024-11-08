@@ -48,6 +48,7 @@ const MediaContent: React.FC<{ media: Media }> = ({ media }) => {
           src={media.src}
           autoPlay
           controls
+          muted
           onLoadedData={handleVideoLoaded}
           className={`absolute top-0 left-0 w-full h-full object-cover shadow-md transition-opacity duration-200 ease-in ${
             isVideoLoaded ? "opacity-100" : "opacity-0"
