@@ -10,6 +10,9 @@ export default {
         '2xl': '1440px',
         '3xl': '1600px',
       },
+      gridTemplateColumns: {
+        'responsive': 'repeat(auto-fit, minmax(100px, 1fr))',
+      },
       colors: {
         "base": "#042f2e", // website background
         "base-two": "#3A5A40",

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SidePop from '../SidePop'
 import { Link } from 'react-router-dom'
 import { sideNames, sideLinks, sideDetails } from '../data/SidebarData';
@@ -9,7 +9,6 @@ interface MobileSidebarProps {
 }
 
 // Each header should be a link as well, should explain general proficiencies with the technology or thing
-
 const MobileSidebar: React.FC<MobileSidebarProps> = ({mobileShowMenu, setMobileShowMenu}) => {
     const toggleMobileShowMenu = () => {
         setMobileShowMenu(!mobileShowMenu)

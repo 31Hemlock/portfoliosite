@@ -1,23 +1,36 @@
 type dims = {h: number; w: number;}
 
-export interface Media {
-  type: 'image' | 'video' | 'aws';
-  src?: string;
-  alt?: string;
+export interface BaseMedia {
+  type: 'image' | 'video';
+  src: string;
+  alt: string;
   dims?: dims;
 }
 
+export interface CustomMedia {
+  type: 'custom';
+  content: React.ReactNode;
+}
+
+export type Media = BaseMedia | CustomMedia;
+
 export type titleStyle = "header" | "body"
 
-export interface TabContentData {
+export interface CoreTabContentData {
   media?: Media;
-  content: React.ReactNode;
   title?: string;
+  subtitle?: string;
   sourceCode?: string;
+  link?: string;
+};
+
+export interface TabContentData extends CoreTabContentData {
+  content: React.ReactNode;
 };
 
 // Styles
 export const titleClasses = "font-medium text-center text-4xl md:text-5xl"
+export const previewTitleClasses = "font-medium text-center text-2xl md:text-3xl"
 export const mainHeaderClasses = "font-semibold text-center text-3xl mb-4 pt-6"
 export const leftMainHeaderClasses = "font-semibold text-xl mb-4 pt-4"
 export const sourceCodeClasses = "font-semibold text-xl mb-4 pt-4"

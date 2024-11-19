@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CustomTabContent } from '../CustomTabContent';
 import { ContentCard } from '@/components/ContentCard';
 import { 
@@ -11,15 +11,14 @@ import {
   secondaryHeaderClasses, 
   sourceCodeClasses, 
   linkClasses,
-  thinDivider
+  thinDivider,
+  TabContentData,
+  CoreTabContentData
 } from '@/types/TabContentTypes';
-import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { CustomTabContentProps } from '@/types/CustomTabContentTypes';
 import { ServiceMenu } from '@/components/ServiceMenu';
-
 import { SB } from '@/components/utils/SB';
-
 import Amplify from "../assets/img/aws_service/Amplify.svg";
 import APIGateway from "../assets/img/aws_service/APIGateway.svg";
 import CloudFront from "../assets/img/aws_service/CloudFront.svg";
@@ -30,10 +29,6 @@ import Lambda from "../assets/img/aws_service/Lambda.svg";
 import Route53 from "../assets/img/aws_service/Route53.svg";
 import S3 from "../assets/img/aws_service/S3.svg";
 import Stripe from "../assets/img/aws_service/Stripe.png"
-
-import { Link } from 'react-router-dom';
-
-
 import { 
   SimpleServicesInterface, 
   ExtendedServicesInterface, 
@@ -82,10 +77,18 @@ export const simpleServices: SimpleServicesInterface = {
   }
 };
 
+export const MFSBackendCoreTabContent: CoreTabContentData = {
+  title: "Serverless Engine for Art Competition",
+  link: "serverless-backend-api",
+  subtitle: "Click the icons above to see more details!",
+  media: { // technically not core tab content, but overwritten when not previewed
+    type: "custom",
+    content: <ServiceMenu interactable={false}/>
+  }
+};
+
 const MFSBackend = () => {
   const [activeService, setActiveService] = useState<string>("");
-
-  // Extend the simple services with additional content
   const extendedServices: ExtendedServicesInterface = {
     Amplify: {
       ...simpleServices.Amplify,
@@ -305,15 +308,17 @@ const MFSBackend = () => {
   };
 
   const tabContent: CustomTabContentProps = {
-    title: "Serverless Engine for Art Competition",
+    title: MFSBackendCoreTabContent.title,
+    link: MFSBackendCoreTabContent.link,
+    subtitle: MFSBackendCoreTabContent.subtitle,
     content: (
       <>
-        <ServiceMenu activeService={activeService} setActiveService={setActiveService} />
+        <ServiceMenu interactable={true} activeService={activeService} setActiveService={setActiveService} />
 
         {!extendedServices[activeService]?.content && (
           <ContentCard>
             <p className={`${mainHeaderClasses}`}>
-              Click the icons above to see more details!
+              {MFSBackendCoreTabContent.subtitle}
             </p>
             {divider}
             <p className={`${paragraphClasses}`}>
@@ -355,7 +360,7 @@ const MFSBackend = () => {
     setActiveService: setActiveService,
   };
 
-  return <CustomTabContent {...tabContent} />;
+  return <CustomTabContent {...tabContent}/>;
 }
 
 export default MFSBackend;

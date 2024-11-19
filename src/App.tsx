@@ -1,22 +1,22 @@
 import React, { useState, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './modules/Sidebar';
-import Home from './modules/Home';
+import { HomeTabContent } from './modules/Home';
 import MFSBackend from './modules/MFSBackend';
-import ElectronChess from './modules/ElectronChess';
-import PyDataManipulation from './modules/PyDataManipulation';
-import MachineLearning from './modules/MachineLearning';
-import Excel from './modules/Excel';
-import Powershell from './modules/Powershell';
-import Flow from './modules/Flow';
-import SQL from './modules/SQL';
-import ICAFFrontend from './modules/ICAFFrontend';
-import VisualStudio from './modules/VisualStudio';
-import WebcommerceProject from './modules/WebcommerceProject';
-import MyWebsite from './modules/MyWebsite';
+import { ElectronChessTabContent } from './modules/ElectronChess';
+import { PyDataManipulationTabContent } from './modules/PyDataManipulation';
+import { MachineLearningTabContent } from './modules/MachineLearning';
+import { ExcelTabContent } from './modules/Excel';
+import { PowershellTabContent } from './modules/Powershell';
+import { FlowTabContent } from './modules/Flow';
+import { SQLTabContent } from './modules/SQL';
+import { ICAFFrontendTabContent } from './modules/ICAFFrontend';
+import {VisualStudioTabContent} from './modules/VisualStudio';
+import { WebcommerceProjectTabContent } from './modules/WebcommerceProject';
+import {MyWebsiteTabContent} from './modules/MyWebsite';
 import useWindowDimensions from './components/utils/useWindowDimensions';
 import MobileSidebar from './modules/MobileSidebar';
-import MFSFrontend from './modules/MFSFrontend';
+import { MFSFrontendTabContent } from './modules/MFSFrontend';
 import ScrollToTop from './components/utils/ScrollToTop';
 import { PuzzlrTabContent } from './modules/Puzzlr';
 import { TabContent } from './TabContent';
@@ -45,22 +45,23 @@ function App() {
            bg-gradient-to-r from-cyan-50 to-cyan-100 mb-0 col-start-2 w-full overflow-y-scroll custom-main-scrollbar `} >
             <ScrollToTop scrollTargetRef={scrollableDivRef}/>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/portfoliosite" element={<Home />} />
-              <Route path="/portfoliosite/myfavoritesport-art-competition" element={<MFSFrontend />} />
-              <Route path="/portfoliosite/serverless-backend-api" element={<MFSBackend />} />
-              <Route path="/portfoliosite/icaf-responsive-design" element={<ICAFFrontend />} />
+              {/* Data is exported from each component and passed to TabContent because we want to use their data to render a tab as well as a preview */}
+              <Route path="/" element={<TabContent {...HomeTabContent} />} />
+              <Route path="/portfoliosite" element={<TabContent {...HomeTabContent} />} />
+              <Route path="/portfoliosite/myfavoritesport-art-competition" element={<TabContent {...MFSFrontendTabContent} />} />
+              <Route path="/portfoliosite/serverless-backend-api" element={<MFSBackend />} /> {/* uses state so has to be imported as a function rather than data */}
+              <Route path="/portfoliosite/icaf-responsive-design" element={<TabContent {...ICAFFrontendTabContent} />} />
               <Route path="/portfoliosite/tabletop-puzzle-game" element={<TabContent {...PuzzlrTabContent} />} />
-              <Route path="/portfoliosite/electron-chess-analytics" element={<ElectronChess />} />
-              <Route path="/portfoliosite/python-data-manipulation" element={<PyDataManipulation />} />
-              <Route path="/portfoliosite/machine-learning" element={<MachineLearning />} />
-              <Route path="/portfoliosite/excel-formulas" element={<Excel />} />
-              <Route path="/portfoliosite/powershell" element={<Powershell />} />
-              <Route path="/portfoliosite/flow" element={<Flow />} />
-              <Route path="/portfoliosite/sql-webcommerce" element={<SQL />} />
-              <Route path="/portfoliosite/webcommerce-project" element={<WebcommerceProject />} />
-              <Route path="/portfoliosite/my-website" element={<MyWebsite />} />
-              <Route path="/portfoliosite/visual-studio" element={<VisualStudio />} />
+              <Route path="/portfoliosite/electron-chess-analytics" element={<TabContent {...ElectronChessTabContent} />} />
+              <Route path="/portfoliosite/python-data-manipulation" element={<TabContent {...PyDataManipulationTabContent} />} />
+              <Route path="/portfoliosite/machine-learning" element={<TabContent {...MachineLearningTabContent} />} />
+              <Route path="/portfoliosite/excel-formulas" element={<TabContent {...ExcelTabContent} />} />
+              <Route path="/portfoliosite/powershell" element={<TabContent {...PowershellTabContent} />} />
+              <Route path="/portfoliosite/flow" element={<TabContent {...FlowTabContent} />} />
+              <Route path="/portfoliosite/sql-webcommerce" element={<TabContent {...SQLTabContent} />} />
+              <Route path="/portfoliosite/webcommerce-project" element={<TabContent {...WebcommerceProjectTabContent} />} />
+              <Route path="/portfoliosite/my-website" element={<TabContent {...MyWebsiteTabContent} />} />
+              <Route path="/portfoliosite/visual-studio" element={<TabContent {...VisualStudioTabContent} />} />
             </Routes>
           </div>
         </div>

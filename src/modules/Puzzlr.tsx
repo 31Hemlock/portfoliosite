@@ -1,5 +1,5 @@
 import { TabContent } from '../TabContent';
-import { TabContentData } from '@/types/TabContentTypes';
+import { CoreTabContentData, TabContentData } from '@/types/TabContentTypes';
 import { ContentCard } from '@/components/ContentCard';
 import { mainHeaderClasses, divider, subheaderDivider, thinDivider, paragraphClasses, leftMainHeaderClasses, functionClasses } from '@/types/TabContentTypes';
 import { IntraSiteLinkWrapper, LinkWrapper } from '@/components/LinkWrapper';
@@ -9,19 +9,26 @@ import { ObjectWrapper } from '@/components/ObjectWrapper';
 import { CodeLink } from '@/data/CodeLink';
 
 const coverVidUrl = new URL('../assets/vid/puzzlr.mp4', import.meta.url).href;
+
+export const PuzzlrCoreTabContent: CoreTabContentData = {
+  media: {
+    type: 'video',
+    src: coverVidUrl,
+    alt: 'Puzzlr',
+    dims: {h: 1920, w: 1080}
+  },
+  title: "Puzzlr",
+  subtitle: "A 3D tabletop puzzle game.",
+  link: "tabletop-puzzle-game",
+}
+
 export const PuzzlrTabContent: TabContentData = {
-    media: {
-      type: 'video',
-      src: coverVidUrl,
-      alt: 'Puzzlr',
-      dims: {h: 1920, w: 1080}
-    },
-    title: "Puzzlr",
+    ...PuzzlrCoreTabContent,
     content: 
     <>
       <ContentCard>
         <p className={`${mainHeaderClasses}`}>
-          A 3D tabletop puzzle game.
+          {PuzzlrCoreTabContent.subtitle}
         </p>
         {divider}
         <p className={`${paragraphClasses}`}>

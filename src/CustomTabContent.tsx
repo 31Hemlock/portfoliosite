@@ -2,7 +2,7 @@ import React from "react";
 import { titleClasses } from "@/types/TabContentTypes";
 import { CustomTabContentProps } from "./types/CustomTabContentTypes";
 
-export const CustomTabContent: React.FC<CustomTabContentProps> = ({ title, content, sourceCode, activeService, setActiveService }) => {
+export const CustomTabContent: React.FC<CustomTabContentProps> = ({ title, content, sourceCode }) => {
   return (
     <div className={`p-4 pt-8 md:p-12 xl:p-20 mx-auto  z-10 relative overflow-x-hidden flex flex-col place-content-around gap-4`}>
 
