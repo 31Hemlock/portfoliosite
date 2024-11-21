@@ -30,7 +30,7 @@ export interface TabContentData extends CoreTabContentData {
 
 // Styles
 export const titleClasses = "font-medium text-center text-4xl md:text-5xl"
-export const previewTitleClasses = "font-medium text-center text-2xl md:text-3xl"
+export const previewTitleClasses = "font-medium text-center text-2xl md:text-3xl text-balance"
 export const mainHeaderClasses = "font-semibold text-center text-3xl mb-4 pt-6"
 export const leftMainHeaderClasses = "font-semibold text-xl mb-4 pt-4"
 export const sourceCodeClasses = "font-semibold text-xl mb-4 pt-4"

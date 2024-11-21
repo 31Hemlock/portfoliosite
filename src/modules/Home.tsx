@@ -24,11 +24,11 @@ export const HomeTabContent: TabContentData = {
           Please click through the links in the menu and direct any questions or comments to 31Hemlock@gmail.com.
         </p>
       </ContentCard>
-      <div className="grid gap-4 grid-rows-2 grid-cols-2">
+      <div className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-4">
         <ComponentPreview {...MFSFrontendCoreTabContent}/>
-        <ComponentPreview {...ICAFFrontendCoreTabContent}/>
-        <ComponentPreview {...PuzzlrCoreTabContent}/>
         <ComponentPreview {...MFSBackendCoreTabContent}/>
+        <ComponentPreview {...PuzzlrCoreTabContent}/>
+        <ComponentPreview {...ICAFFrontendCoreTabContent}/>
       </div>
       
     </>

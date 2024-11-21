@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Media, previewTitleClasses } from "@/types/TabContentTypes";
 import { Link } from "react-router-dom";
+import { PreviewLinkWrapper } from "./LinkWrapper";
 
 interface ComponentPreviewProps {
   media?: Media;
@@ -43,34 +44,24 @@ const MediaContent: React.FC<{ media: Media; isHovered: boolean }> = ({ media, i
 
   if (media.type === "image") {
     return (
-      <div
-        className="w-full relative mb-6 z-10"
-        style={{ paddingBottom: aspectRatio ? `${aspectRatio}%` : "56.25%" }} // default to 16:9
-      >
-        <img
-          src={media.src}
-          alt={media.alt}
-          className="absolute top-0 left-0 w-full h-full object-cover shadow-md"
-        />
-      </div>
+      <img
+        src={media.src}
+        alt={media.alt}
+        className="w-full h-full object-cover shadow-md"
+      />
     );
   } else if (media.type === "video") {
     return (
-      <div
-        className="w-full relative z-10"
-        style={{ paddingBottom: aspectRatio ? `${aspectRatio}%` : "56.25%" }}
-      >
-        <video
-          ref={videoRef}
-          src={media.src}
-          muted
-          loop
-          onLoadedData={handleVideoLoaded}
-          className={`absolute top-0 left-0 w-full h-full object-cover shadow-md transition-opacity duration-200 ease-in ${
-            isVideoLoaded ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      </div>
+      <video
+        ref={videoRef}
+        src={media.src}
+        muted
+        loop
+        onLoadedData={handleVideoLoaded}
+        className={`w-full h-full object-cover shadow-md transition-opacity duration-200 ease-in ${
+          isVideoLoaded ? "opacity-100" : "opacity-0"
+        }`}
+      />
     );
   }
 
@@ -95,26 +86,64 @@ export const ComponentPreview: React.FC<ComponentPreviewProps> = ({
   };
 
   return (
-    <Link
-      className="grid grid-cols-1 grid-rows-1 grid-col relative cursor-pointer "
-      to={link || ""}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="px-8 pt-4 shadow-lg z-10 relative bg-card col-start-1 row-start-1">
-        <div
-          className={`mx-auto z-10 relative overflow-hidden flex flex-col place-content-around gap-4 max-h-[400px]`}
-        >
-          {title && (
-            <div className="grid relative">
-              <p className={`${previewTitleClasses}`}>{title}</p>
+    <PreviewLinkWrapper className="w-full h-full grid" urlSuffix={link || ""}>
+      <div 
+        className="grid grid-cols-1 grid-rows-1 relative cursor-pointer"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="px-8 pt-6 shadow-lg z-10 relative bg-card col-start-1 row-start-1 flex flex-col gap-4 max-h-[400px]">
+          {/* title */}
+          <div className="relative">
+            <div className="relative z-10">
+              {title && (
+                <div className="grid">
+                  <p className={`${previewTitleClasses}`}>{title}</p>
+                </div>
+              )}
             </div>
-          )}
-          {media && <MediaContent media={media} isHovered={isHovered} />}
-          {subtitle}
+            {/* {title && (
+              <div className="col-start-1 row-start-1 z-[5] absolute bottom-0 bg-gradient-to-t from-card to-transparent w-full h-[50px]"></div>
+            )} */}
+          </div>
+  
+          {/* media */}
+          <div className="relative grid grid-cols-1 grid-rows-1 overflow-hidden h-[200px] md:h-[300px]">
+            <div className="relative z-10 h-full w-full flex items-center justify-center">
+              {media && (
+                <div
+                  className="h-full w-full object-cover"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    overflow: "hidden",
+                  }}
+                >
+                  <MediaContent media={media} isHovered={isHovered} />
+                </div>
+              )}
+            </div>
+            {media && (
+              <div className="col-start-1 row-start-1 z-[15] absolute bottom-0 bg-gradient-to-t from-card to-transparent w-full h-[50px] pointer-events-none"></div>
+            )}
+          </div>
+  
+          {/* subtitle */}
+          <div className="relative grid grid-cols-1 grid-rows-1 h-[100px]">
+            <div className="relative z-10 text-sm md:text-base font-medium text-secondary ">
+              {subtitle}
+            </div>
+            {subtitle && (
+              <div className="col-start-1 row-start-1 z-[5] absolute bottom-0 bg-gradient-to-t from-card to-transparent w-full h-[50px]"></div>
+            )}
+          </div>
         </div>
       </div>
-      <div className="col-start-1 row-start-1 z-10 bottom-0 absolute bg-gradient-to-t from-gray-50 w-full h-[150px] place-content-center"></div>
-    </Link>
+    </PreviewLinkWrapper>
   );
-};
+  
+  
+  
+  };

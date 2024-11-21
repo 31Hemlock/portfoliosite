@@ -29,7 +29,7 @@ export const MFSFrontendTabContent: TabContentData = {
         {divider}
         <p className={`${paragraphClasses}`}>
           I was tasked with leading the development of an application to host a global art competition administered by the <LinkWrapper url="https://www.icaf.org" text="International Child Art Foundation"/>.
-          This page demonstrates the work done on the frontend of this application. To learn more about how our team built the backend and API, click <IntraSiteLinkWrapper urlSuffix="/portfoliosite/serverless-backend-api" text="here"/>.
+          This page demonstrates the work done on the frontend of this application. To learn more about how our team built the backend and API, click <IntraSiteLinkWrapper urlSuffix="serverless-backend-api" text="here"/>.
         </p>
         <p className={`${paragraphClasses}`}>
           I was lucky to be working with a great team of volunteers, including a team of designers who carefully crafted the aesthetic image of the site, in addition to ensuring that up-to-date UX practices were used at all times.
