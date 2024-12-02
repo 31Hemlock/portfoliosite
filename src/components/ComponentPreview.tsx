@@ -16,14 +16,8 @@ const MediaContent: React.FC<{ media: Media; isHovered: boolean }> = ({ media, i
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
-  let aspectRatio = null;
-
   if (media.type == "custom") {
     return media.content
-  }
-
-  if (media.dims && media.dims.w && media.dims.h) {
-    aspectRatio = (media.dims.w / media.dims.h) * 100;
   }
 
   React.useEffect(() => {
@@ -58,7 +52,7 @@ const MediaContent: React.FC<{ media: Media; isHovered: boolean }> = ({ media, i
         muted
         loop
         onLoadedData={handleVideoLoaded}
-        className={`w-full h-full object-cover shadow-md transition-opacity duration-200 ease-in ${
+        className={`w-full h-full object-cover shadow-md transition-opacity duration-200 ease-in loop ${
           isVideoLoaded ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -86,19 +80,19 @@ export const ComponentPreview: React.FC<ComponentPreviewProps> = ({
   };
 
   return (
-    <PreviewLinkWrapper className="w-full h-full grid" urlSuffix={link || ""}>
+    <PreviewLinkWrapper className={`w-full h-full grid  ${isHovered ? "shadow-xl shadow-white" : "shadow-sm"} transition-shadow`} urlSuffix={link || ""}>
       <div 
         className="grid grid-cols-1 grid-rows-1 relative cursor-pointer"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="px-8 pt-6 shadow-lg z-10 relative bg-card col-start-1 row-start-1 flex flex-col gap-4 max-h-[400px]">
+        <div className={`px-8 py-6 shadow-lg z-10 relative bg-card col-start-1 row-start-1 flex flex-col gap-4 max-h-[400px] `}>
           {/* title */}
           <div className="relative">
             <div className="relative z-10">
               {title && (
                 <div className="grid">
-                  <p className={`${previewTitleClasses}`}>{title}</p>
+                  <p className={`${previewTitleClasses} ${isHovered ? "text-blue-400 visited:text-purple-400" : ""}`}>{title}</p>
                 </div>
               )}
             </div>
@@ -131,13 +125,11 @@ export const ComponentPreview: React.FC<ComponentPreviewProps> = ({
           </div>
   
           {/* subtitle */}
-          <div className="relative grid grid-cols-1 grid-rows-1 h-[100px]">
-            <div className="relative z-10 text-sm md:text-base font-medium text-secondary ">
+          <div className="relative grid grid-cols-1 grid-rows-1">
+            <p className="relative z-10 text-sm md:text-base font-medium text-secondary text-textcolor self-end">
               {subtitle}
-            </div>
-            {subtitle && (
-              <div className="col-start-1 row-start-1 z-[5] absolute bottom-0 bg-gradient-to-t from-card to-transparent w-full h-[50px]"></div>
-            )}
+            </p>
+
           </div>
         </div>
       </div>

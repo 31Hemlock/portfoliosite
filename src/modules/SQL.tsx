@@ -5,14 +5,14 @@ import { ContentCard } from '@/components/ContentCard';
 import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
 import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
-import { SB } from '@/components/utils/SB';
+import sqlImg from "../assets/img/sql.png";
 
 const coverVidUrl = new URL('../assets/img/sql.png', import.meta.url).href;
 
 export const SQLCoreTabContent: CoreTabContentData = {
   media: {
     type: 'image',
-    src: coverVidUrl,
+    src: sqlImg,
     alt: 'A diagram of an SQL database',
     dims: {h: 1682, w: 570}
   },

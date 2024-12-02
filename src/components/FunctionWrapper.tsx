@@ -6,7 +6,6 @@ interface FunctionWrapperProps {
   newTab?: boolean;
 }
 
-
 export const FunctionWrapper: React.FC<FunctionWrapperProps> = ({text, url = "", newTab=true}) => {
 
   if (url) {

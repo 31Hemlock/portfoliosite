@@ -1,15 +1,16 @@
 import { CoreTabContentData, TabContentData } from '@/types/TabContentTypes';
 import { ContentCard } from '@/components/ContentCard';
-import { mainHeaderClasses, divider, subheaderDivider, thinDivider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
+import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
-
-const coverVidUrl = new URL('../assets/vid/icaf_frontend.mp4', import.meta.url).href;
+import icafFrontendVideo from "../assets/vid/icaf_frontend.mp4";
+import icafFrontendPoster from "../assets/vid/poster/icaf_frontend.webp" 
 
 export const ICAFFrontendCoreTabContent: CoreTabContentData = {
   media: {
     type: 'video',
-    src: coverVidUrl,
+    src: icafFrontendVideo,
+    poster: icafFrontendPoster,
     alt: 'Flow',
     dims: {h: 1020, w: 1000}
   },

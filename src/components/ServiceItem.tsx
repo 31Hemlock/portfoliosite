@@ -28,7 +28,7 @@ export const ServiceItem: React.FC<ServiceItemProps> = (props) => { // No destru
   if (props.interactable === false) {
     return (
       <div
-      className="w-20 max-w-full max-h-full aspect-square flex items-center justify-center cursor-pointer transition-all duration-200 rounded"
+      className="w-20 h-20 max-w-full max-h-full aspect-square flex items-center justify-center cursor-pointer transition-all duration-200 rounded"
       style={containerStyles}
     >
       <img

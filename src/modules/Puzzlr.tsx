@@ -1,19 +1,19 @@
-import { TabContent } from '../TabContent';
 import { CoreTabContentData, TabContentData } from '@/types/TabContentTypes';
 import { ContentCard } from '@/components/ContentCard';
-import { mainHeaderClasses, divider, subheaderDivider, thinDivider, paragraphClasses, leftMainHeaderClasses, functionClasses } from '@/types/TabContentTypes';
-import { IntraSiteLinkWrapper, LinkWrapper } from '@/components/LinkWrapper';
+import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
+import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
 import { FunctionWrapper } from '@/components/FunctionWrapper';
 import { ObjectWrapper } from '@/components/ObjectWrapper';
 import { CodeLink } from '@/data/CodeLink';
-
-const coverVidUrl = new URL('../assets/vid/puzzlr.mp4', import.meta.url).href;
+import puzzlrVideo from "../assets/vid/puzzlr.mp4";
+import puzzlrPoster from "../assets/vid/poster/puzzlr.webp";
 
 export const PuzzlrCoreTabContent: CoreTabContentData = {
   media: {
     type: 'video',
-    src: coverVidUrl,
+    src: puzzlrVideo,
+    poster: puzzlrPoster,
     alt: 'Puzzlr',
     dims: {h: 1920, w: 1080}
   },
@@ -64,10 +64,10 @@ export const PuzzlrTabContent: TabContentData = {
         </p>
         <p className={`${paragraphClasses}`}>
           To facilitate this, I created a <ObjectWrapper url={CodeLink + "Puzzlr/blob/main/src/js/Piece.js"} text="Piece"/> and <ObjectWrapper url={CodeLink + "Puzzlr/blob/main/src/js/PieceGroup.js"} text="PieceGroup"/> object in Javascript which are each extended from Three.js objects. 
-          Whenever one of these objects is dropped, it first calculates its new position with a function called <FunctionWrapper url="https://github.com/31Hemlock/Puzzlr/blob/main/src/js/Piece.js#L136" text="moved"/>. 
+          Whenever one of these objects is dropped, it first calculates its new position with a function called <FunctionWrapper url={`${CodeLink}Puzzlr/blob/main/src/js/Piece.js#L136`} text="moved"/>. 
           Since Three.js only tracks the center of a piece's <ObjectWrapper url="https://threejs.org/docs/#api/en/objects/Mesh" text="mesh"/>,
-          I created a function called <FunctionWrapper url="https://github.com/31Hemlock/Puzzlr/blob/main/src/js/Piece.js#L227" text="setCurVerts" />, which finds the real location of each vertex in the piece or group of pieces, regardless of rotation angle.
-          Finally, we can call function <FunctionWrapper url="https://github.com/31Hemlock/Puzzlr/blob/main/src/js/Piece.js#L258" text="checkFormGroup"/>,
+          I created a function called <FunctionWrapper url={`${CodeLink}Puzzlr/blob/main/src/js/Piece.js#L227`} text="setCurVerts" />, which finds the real location of each vertex in the piece or group of pieces, regardless of rotation angle.
+          Finally, we can call function <FunctionWrapper url={`${CodeLink}/Puzzlr/blob/main/src/js/Piece.js#L258`} text="checkFormGroup"/>,
           which compares the location of the dropped piece's vertices to the others in the scene, and if a vertex of a dropped piece matches one of a nearby piece,
           those pieces are destroyed and remade into a <ObjectWrapper text="PieceGroup"/>. This continues until we only have one <ObjectWrapper text="PieceGroup"/> left and the puzzle is complete.
         </p>
@@ -86,7 +86,7 @@ export const PuzzlrTabContent: TabContentData = {
         </p>
         {divider}
         <p className={`${paragraphClasses}`}>
-          To create the 3D assets for this project, I learned how to model and color assets in <LinkWrapper url="https://www.blender.org/" text="blender"/>. 
+          To create the 3D assets for this project, I learned how to model and color assets in <LinkWrapper url="https://www.blender.org/" text="Blender"/>. 
           Behind the window is a static image and a <LinkWrapper url="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API" text="WebGL snow effect"/>, all custom-made for this scene.
         </p>
         <p className={`${paragraphClasses}`}>
@@ -107,7 +107,7 @@ export const PuzzlrTabContent: TabContentData = {
         </p>
         {divider}
         <p className={`${paragraphClasses}`}>
-        The source code is available <LinkWrapper url={`https://github.com/31hemlock/puzzlr`} text="here"/>.
+        The source code is available <LinkWrapper url={`${CodeLink}puzzlr`} text="here"/>.
         </p>
       </ContentCard>
     </>

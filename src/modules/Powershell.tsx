@@ -3,15 +3,15 @@ import { ContentCard } from '@/components/ContentCard';
 import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
 import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
-import { SB } from '@/components/utils/SB';
 import { CoreTabContentData } from '@/types/TabContentTypes';
-
-const coverVidUrl = new URL('../assets/vid/powershell.mp4', import.meta.url).href;
+import powershellVideo from "../assets/vid/powershell.mp4";
+import powershellPoster from "../assets/vid/poster/powershell.webp";
 
 export const PowershelLCoreTabContent: CoreTabContentData = {
   media: {
     type: 'video',
-    src: coverVidUrl,
+    src: powershellVideo,
+    poster: powershellPoster,
     alt: 'Powershell',
     dims: {h: 1920, w:1080}
   },
@@ -30,7 +30,7 @@ export const PowershellTabContent: TabContentData = {
         </p>
         {divider}
         <p className={`${paragraphClasses}`}>
-          This script downloads audio files from YouTube using <SB>youtube-dl</SB> and <SB>ffmpeg</SB>, renames them, and places them under my music directory in the proper folder.
+          This script downloads audio files from YouTube using <LinkWrapper url="https://github.com/ytdl-org/youtube-dl" text="youtube-dl"/> and <LinkWrapper url="https://www.ffmpeg.org/" text="ffmpeg" />, renames them, and places them under my music directory in the proper folder.
         </p>
       </ContentCard>
       <ContentCard>

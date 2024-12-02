@@ -1,16 +1,15 @@
 import { TabContentData } from '@/types/TabContentTypes';
 import { ContentCard } from '@/components/ContentCard';
-import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
+import { mainHeaderClasses, divider, paragraphClasses } from '@/types/TabContentTypes';
 import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { CoreTabContentData } from '@/types/TabContentTypes';
-
-const coverVidUrl = new URL('../assets/img/excel.png', import.meta.url).href;
+import excelImage from '../assets/img/excel.png';
 
 export const ExcelCoreTabContent: CoreTabContentData = {
   media: {
     type: 'image',
-    src: coverVidUrl,
+    src: excelImage,
     alt: 'Excel',
     dims: {h: 1357, w: 594}
   },

@@ -5,13 +5,14 @@ import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
 import { CoreTabContentData } from '@/types/TabContentTypes';
-
-const coverVidUrl = new URL('../assets/vid/chess_analytics.mp4', import.meta.url).href;
+import electronChessVideo from "../assets/vid/chess_analytics.mp4";
+import electronChessPoster from "../assets/vid/poster/chess_analytics.webp";
 
 export const ElectronChessCoreTabContent: CoreTabContentData = {
   media: {
     type: 'video',
-    src: coverVidUrl,
+    src: electronChessVideo,
+    poster: electronChessPoster,
     alt: 'Electron Chess Analytics',
     dims: {h: 1920, w: 1080}
   },
@@ -30,9 +31,10 @@ export const ElectronChessTabContent: TabContentData = {
       </p>
       {divider}
       <p className={`${paragraphClasses}`}>
-        Chess Analytics is an <SB>Electron</SB>-based application that accepts a <i>Lichess</i> username, analyzes all of the games on the account, and displays the analysis through the libraries <SB>HighCharts</SB> and <SB>Chessground</SB>. 
-        Each move is analyzed by <SB>Stockfish</SB> and uploaded to <SB>MongoDB</SB>. 
-        I use this data to give interesting information about the games to the user, such as the percentage of games they won when they castled kingside compared to queenside.
+        Chess Analytics is an <LinkWrapper url="https://www.electronjs.org/" text="Electron"/>-based application that accepts a <LinkWrapper url="https://lichess.org/" text="Lichess"/> username, 
+        analyzes all of the games on the account, and displays the analysis through the libraries <LinkWrapper url="https://www.highcharts.com/" text="HighCharts"/> and <LinkWrapper url="https://github.com/lichess-org/chessground" text="Chessground"/>. 
+        Each move is analyzed by <LinkWrapper url="https://stockfishchess.org/" text="Stockfish"/> and uploaded to <LinkWrapper url="https://www.mongodb.com/" text="MongoDB"/>. 
+        I use this data to display interesting information about the games to the user, such as the percentage of games they won when they castled kingside compared to queenside.
       </p>
       <p className={`${paragraphClasses}`}>
         While I use <SB>JavaScript</SB> to display all frontend information, the backend analysis portion is written in <SB>Python</SB> - I analyze each move from the rated games on the account, then send the data to a MongoDB database. 

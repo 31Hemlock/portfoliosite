@@ -1,18 +1,17 @@
-import React from 'react';
-import { TabContent } from '../TabContent';
 import { CoreTabContentData, TabContentData } from '@/types/TabContentTypes';
 import { ContentCard } from '@/components/ContentCard';
 import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } from '@/types/TabContentTypes';
 import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
-
-const coverVidUrl = new URL('../assets/vid/webcommerce_project.mp4', import.meta.url).href;
+import webcommerceProjectVideo from "../assets/vid/webcommerce_project.mp4";
+import webcommerceProjectPoster from "../assets/vid/poster/webcommerce_project.webp";
 
 export const WebcommerceProjectCoreTabContent: CoreTabContentData = {
   media: {
     type: 'video',
-    src: coverVidUrl,
+    src: webcommerceProjectVideo,
+    poster: webcommerceProjectPoster,
     alt: 'Webcommerce Project',
     dims: {h: 1920, w: 1080},
   },

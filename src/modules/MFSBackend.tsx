@@ -12,7 +12,6 @@ import {
   sourceCodeClasses, 
   linkClasses,
   thinDivider,
-  TabContentData,
   CoreTabContentData
 } from '@/types/TabContentTypes';
 import { LinkWrapper } from '@/components/LinkWrapper';

@@ -11,8 +11,9 @@ export default {
         '3xl': '1600px',
       },
       colors: {
-        "base": "#042f2e", // website background
-        "base-two": "#3A5A40",
+        "background": "#1f2937", // background color
+        "background-two": "#8e0c11",
+        "textcolor": "black",
         "sidebar-base": "#010A0D", // sidebar color
         "header-white": "#FCFDFE", // header text color
         "subheader-white": "#FCFDFE", // subheader text color
@@ -23,7 +24,8 @@ export default {
         "card": "#FCFDFE", // color for content cards
       },
       backgroundImage: {
-        'base-pattern': "url('/src/assets/img/absurdity.png')"
+        'base-pattern': "url('/src/assets/felt/Gcc8lM_WEAAtHqH.png')",
+        'card-texture': "url('src/assets/felt/painted-plaster-4717-in-architextures.jpg')",
       },
       fontWeight: {
         thin: "100",

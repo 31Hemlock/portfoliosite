@@ -2,7 +2,7 @@ import React from "react";
 import { Media } from "@/types/TabContentTypes";
 import { titleClasses } from "@/types/TabContentTypes";
 import { useState } from "react";
-
+import { BaseMedia } from "@/types/TabContentTypes";
 
 interface TabContentProps {
   media?: Media;
@@ -12,11 +12,15 @@ interface TabContentProps {
   dimensions?: string[]
 }
 
+function isBaseMedia(media: Media): media is BaseMedia {
+  return "dims" in media;
+}
+
 const MediaContent: React.FC<{ media: Media }> = ({ media }) => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   let aspectRatio = null;
 
-  if (media.dims && media.dims.w && media.dims.h) {
+  if (isBaseMedia(media) && media.dims?.w && media.dims?.h) {
     aspectRatio = (media.dims.w / media.dims.h) * 100;
   }
 
@@ -49,6 +53,7 @@ const MediaContent: React.FC<{ media: Media }> = ({ media }) => {
           autoPlay
           controls
           muted
+          poster={media.poster}
           onLoadedData={handleVideoLoaded}
           className={`absolute top-0 left-0 w-full h-full object-cover shadow-md transition-opacity duration-200 ease-in ${
             isVideoLoaded ? "opacity-100" : "opacity-0"

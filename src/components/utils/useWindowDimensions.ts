@@ -34,7 +34,6 @@ function useWindowDimensions() {
 
     window.addEventListener("resize", handleResize);
 
-    // Determines if user device has touch screen as primary input device. Should work for phones and tablets.
     const hasTouchScreen = () => {
       return window.matchMedia("(pointer: coarse)").matches;
     };

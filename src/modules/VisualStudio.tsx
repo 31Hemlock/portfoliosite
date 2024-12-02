@@ -6,13 +6,16 @@ import { mainHeaderClasses, secondaryHeaderClasses, divider, paragraphClasses, l
 import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
+import visualStudioVideo from "../assets/vid/visual_studio.mp4";
+import visualStudioPoster from "../assets/vid/poster/visual_studio.webp";
 
 const coverVidUrl = new URL('../assets/vid/visual_studio.mp4', import.meta.url).href;
 
 export const VisualStudioCoreTabContent: CoreTabContentData = {
   media: {
     type: 'video',
-    src: coverVidUrl,
+    src: visualStudioVideo,
+    poster: visualStudioPoster,
     alt: 'Consulting project',
     dims: {h: 1920, w: 1080}
   },
@@ -31,7 +34,7 @@ export const VisualStudioTabContent: TabContentData = {
         </p>
         {divider}
         <p className={`${paragraphClasses}`}>
-        For this project, our group had to develop an investing assistant application in Visual Studio. 
+        For this project, our group had to develop an investing assistant application in <LinkWrapper url="https://visualstudio.microsoft.com/#vs-section" text="Visual Studio"/>. 
         The application takes user preferences, such as how risky they would like their portfolio to be, and builds a 10 year investment portfolio based on that information.
         </p>
 
@@ -42,8 +45,8 @@ export const VisualStudioTabContent: TabContentData = {
 
 
         <p className={`${paragraphClasses}`}>
-          The project was coded in Visual Studio and connects to an <SB>Access</SB> database, which stores information about different kinds of stocks such as their expected return rate, riskiness value, and social equity. 
-          <SB>Visual Basic</SB> code receives this data and uses Microsoft's <SB>Solver</SB> function to determine the optimal allocation of money based on user preferences.
+          The project was coded in <LinkWrapper url="https://visualstudio.microsoft.com/#vs-section" text="Visual Studio"/> and connects to an <LinkWrapper url="https://www.microsoft.com/en-us/microsoft-365/access" text="Access"/> database, which stores information about different kinds of stocks such as their expected return rate, riskiness value, and social equity. 
+          {" "}<SB>Visual Basic</SB> code receives this data and uses Microsoft's <LinkWrapper url="https://math.microsoft.com/en" text="Solver"/> function to determine the optimal allocation of money based on user preferences.
         </p>
 
 

@@ -5,13 +5,14 @@ import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
 import { CoreTabContentData } from '@/types/TabContentTypes';
-
-const coverVidUrl = new URL('../assets/vid/flow.mp4', import.meta.url).href;
+import flowVideo from "../assets/vid/flow.mp4";
+import flowPoster from "../assets/vid/poster/flow.webp";
 
 export const FlowCoreTabContent: CoreTabContentData = {
   media: {
     type: 'video',
-    src: coverVidUrl,
+    src: flowVideo,
+    poster: flowPoster,
     alt: 'Flow',
     dims: {h: 1920, w: 1080}
   },
@@ -44,7 +45,7 @@ export const FlowTabContent: TabContentData = {
         </p>
         {divider}
         <p className={`${paragraphClasses}`}>
-            Flow is a simple application powered by <SB>JavaScript</SB> and <SB>jQuery</SB>. Its <SB>CSS</SB> is augmented by <SB>Bootstrap</SB>. Rather than using a database, it stores user information in a browser cookie.
+            Flow is a simple application powered by <SB>HTML</SB>, <SB>JavaScript</SB>, and <SB>jQuery</SB>. Its <SB>CSS</SB> is augmented by <SB>Bootstrap</SB>. Rather than using a database, it stores user information in a browser cookie.
         </p>
       </ContentCard>
       <ContentCard>

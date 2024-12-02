@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './modules/Sidebar';
 import { HomeTabContent } from './modules/Home';
@@ -29,7 +29,9 @@ function App() {
   console.log(orientationString);
   return (
     <Router>
-      <div className="grid grid-cols-1 grid-rows-1 w-full h-full object-cover overflow-hidden   bg-gray-800  "> {/*  bg-base-pattern   bg-gradient-to-r from-violet-500 to-fuchsia-500 */}
+      
+      <div className="grid grid-cols-1 grid-rows-1 w-full h-full object-cover overflow-hidden bg-gradient-to-bl from-slate-800 via-slate-900 to-slate-800"> {/*  bg-base-pattern   bg-gradient-to-r from-violet-500 to-fuchsia-500  */}
+      {/* <GrainTexture/> */}
         {/* <img src={bg} className="col-start-1 row-start-1 w-full h-full object-cover relative" alt="bg" /> */}
         <div className={`
           ${orientationString === "landscape" ? "flex-row  md:max-h-[90vh]" : "flex-col"} 
@@ -42,7 +44,8 @@ function App() {
             {orientationString === "landscape" ? <Sidebar /> : <MobileSidebar mobileShowMenu={mobileShowMenu} setMobileShowMenu={setMobileShowMenu} />}
           </div>
           <div ref={scrollableDivRef} className={`${orientationString == "landscape" ? "col-start-1 row-start-1" : "col-start-1 row-start-2"} 
-           bg-gradient-to-r from-cyan-50 to-cyan-100 mb-0 col-start-2 w-full overflow-y-scroll custom-main-scrollbar `} >
+            bg-gradient-to-r from-cyan-50 to-cyan-100
+           mb-0 col-start-2 w-full overflow-y-scroll custom-main-scrollbar `} >
             <ScrollToTop scrollTargetRef={scrollableDivRef}/>
             <Routes>
               {/* Data is exported from each component and passed to TabContent because we want to use their data to render a tab as well as a preview */}
