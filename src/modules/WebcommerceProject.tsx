@@ -5,12 +5,15 @@ import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
 import webcommerceProjectVideo from "../assets/vid/webcommerce_project.mp4";
+import webcommerceProjectLQVideo from "../assets/vid/lq/webcommerce_project.mp4";
 import webcommerceProjectPoster from "../assets/vid/poster/webcommerce_project.webp";
 
 export const WebcommerceProjectCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'webcommerce-project',
     type: 'video',
     src: webcommerceProjectVideo,
+    lqsrc: webcommerceProjectLQVideo,
     poster: webcommerceProjectPoster,
     alt: 'Webcommerce Project',
     dims: {h: 1920, w: 1080},

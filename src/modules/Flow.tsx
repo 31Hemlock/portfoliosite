@@ -6,12 +6,15 @@ import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
 import { CoreTabContentData } from '@/types/TabContentTypes';
 import flowVideo from "../assets/vid/flow.mp4";
+import flowLQVideo from "../assets/vid/lq/flow.mp4";
 import flowPoster from "../assets/vid/poster/flow.webp";
 
 export const FlowCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'flow',
     type: 'video',
     src: flowVideo,
+    lqsrc: flowLQVideo,
     poster: flowPoster,
     alt: 'Flow',
     dims: {h: 1920, w: 1080}

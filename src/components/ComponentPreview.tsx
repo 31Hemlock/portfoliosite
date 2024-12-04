@@ -48,7 +48,7 @@ const MediaContent: React.FC<{ media: Media; isHovered: boolean }> = ({ media, i
     return (
       <video
         ref={videoRef}
-        src={media.src}
+        src={media.lqsrc || media.src}
         muted
         loop
         onLoadedData={handleVideoLoaded}

@@ -4,12 +4,15 @@ import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } f
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
 import icafFrontendVideo from "../assets/vid/icaf_frontend.mp4";
+import icafFrontendLQVideo from "../assets/vid/lq/icaf_frontend.mp4";
 import icafFrontendPoster from "../assets/vid/poster/icaf_frontend.webp" 
 
 export const ICAFFrontendCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'icaf-frontend',
     type: 'video',
     src: icafFrontendVideo,
+    lqsrc: icafFrontendLQVideo,
     poster: icafFrontendPoster,
     alt: 'Flow',
     dims: {h: 1020, w: 1000}

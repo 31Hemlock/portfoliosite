@@ -7,10 +7,9 @@ import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import sqlImg from "../assets/img/sql.png";
 
-const coverVidUrl = new URL('../assets/img/sql.png', import.meta.url).href;
-
 export const SQLCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'sql-webcommerce',
     type: 'image',
     src: sqlImg,
     alt: 'A diagram of an SQL database',

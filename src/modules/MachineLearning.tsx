@@ -9,6 +9,7 @@ import machineLearningImage from "../assets/img/machine_learning.png"
 
 export const MachineLearningCoreTabContentData: CoreTabContentData = {
   media: {
+    id: 'machine-learning',
     type: 'image',
     src: machineLearningImage,
     alt: 'Machine learning',

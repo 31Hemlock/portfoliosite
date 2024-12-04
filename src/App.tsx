@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './modules/Sidebar';
 import { HomeTabContent } from './modules/Home';
@@ -23,10 +23,48 @@ import { TabContent } from './TabContent';
 
 function App() {
   const { orientation } = useWindowDimensions();
+  const [videoHQ, setVideoHQ] = useState(false);
   const orientationString = orientation;
   const [mobileShowMenu, setMobileShowMenu] = useState(false);
   const scrollableDivRef = useRef(null);
-  console.log(orientationString);
+
+  // measure network performance on page load
+  useEffect(() => {
+    const measurePerformance = () => {
+      const resources = performance.getEntriesByType("resource");
+      let totalSizeInBits = 0;
+      let totalDurationInSeconds = 0;
+  
+      resources.forEach((entry) => {
+        // Check if the entry is a PerformanceResourceTiming object
+        if ((entry as PerformanceResourceTiming).encodedBodySize !== undefined) {
+          const resource = entry as PerformanceResourceTiming; // Type assertion
+          totalSizeInBits += resource.encodedBodySize * 8; // Convert bytes to bits
+          totalDurationInSeconds += (resource.responseEnd - resource.startTime) / 1000; // Convert ms to seconds
+        }
+      });
+  
+      if (totalDurationInSeconds > 0) {
+        const speedMbps = totalSizeInBits / totalDurationInSeconds / (1024 * 1024); // Convert to Mbps
+        console.log(`Estimated download speed: ${speedMbps.toFixed(2)} Mbps`);
+  
+        // Set videoHQ to true if speed is 3 Mbps or higher
+        setVideoHQ(speedMbps >= 3);
+      }
+    };
+  
+    if (performance.getEntriesByType("resource").length > 0) {
+      measurePerformance();
+    } else {
+      window.addEventListener("load", measurePerformance);
+    }
+  
+    return () => {
+      window.removeEventListener("load", measurePerformance);
+    };
+  }, []);
+  
+
   return (
     <Router>
       
@@ -49,22 +87,22 @@ function App() {
             <ScrollToTop scrollTargetRef={scrollableDivRef}/>
             <Routes>
               {/* Data is exported from each component and passed to TabContent because we want to use their data to render a tab as well as a preview */}
-              <Route path="/" element={<TabContent {...HomeTabContent} />} />
-              <Route path="/portfoliosite" element={<TabContent {...HomeTabContent} />} />
-              <Route path="/portfoliosite/myfavoritesport-art-competition" element={<TabContent {...MFSFrontendTabContent} />} />
+              <Route path="/" element={<TabContent {...HomeTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite" element={<TabContent {...HomeTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ} />} />
+              <Route path="/portfoliosite/myfavoritesport-art-competition" element={<TabContent {...MFSFrontendTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
               <Route path="/portfoliosite/serverless-backend-api" element={<MFSBackend />} /> {/* uses state so has to be imported as a function rather than data */}
-              <Route path="/portfoliosite/icaf-responsive-design" element={<TabContent {...ICAFFrontendTabContent} />} />
-              <Route path="/portfoliosite/tabletop-puzzle-game" element={<TabContent {...PuzzlrTabContent} />} />
-              <Route path="/portfoliosite/electron-chess-analytics" element={<TabContent {...ElectronChessTabContent} />} />
-              <Route path="/portfoliosite/python-data-manipulation" element={<TabContent {...PyDataManipulationTabContent} />} />
-              <Route path="/portfoliosite/machine-learning" element={<TabContent {...MachineLearningTabContent} />} />
-              <Route path="/portfoliosite/excel-formulas" element={<TabContent {...ExcelTabContent} />} />
-              <Route path="/portfoliosite/powershell" element={<TabContent {...PowershellTabContent} />} />
-              <Route path="/portfoliosite/flow" element={<TabContent {...FlowTabContent} />} />
-              <Route path="/portfoliosite/sql-webcommerce" element={<TabContent {...SQLTabContent} />} />
-              <Route path="/portfoliosite/webcommerce-project" element={<TabContent {...WebcommerceProjectTabContent} />} />
-              <Route path="/portfoliosite/my-website" element={<TabContent {...MyWebsiteTabContent} />} />
-              <Route path="/portfoliosite/visual-studio" element={<TabContent {...VisualStudioTabContent} />} />
+              <Route path="/portfoliosite/icaf-responsive-design" element={<TabContent {...ICAFFrontendTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/tabletop-puzzle-game" element={<TabContent {...PuzzlrTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/electron-chess-analytics" element={<TabContent {...ElectronChessTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/python-data-manipulation" element={<TabContent {...PyDataManipulationTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/machine-learning" element={<TabContent {...MachineLearningTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/excel-formulas" element={<TabContent {...ExcelTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/powershell" element={<TabContent {...PowershellTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/flow" element={<TabContent {...FlowTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/sql-webcommerce" element={<TabContent {...SQLTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/webcommerce-project" element={<TabContent {...WebcommerceProjectTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/my-website" element={<TabContent {...MyWebsiteTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/portfoliosite/visual-studio" element={<TabContent {...VisualStudioTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
             </Routes>
           </div>
         </div>

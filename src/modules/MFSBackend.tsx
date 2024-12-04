@@ -81,6 +81,7 @@ export const MFSBackendCoreTabContent: CoreTabContentData = {
   link: "serverless-backend-api",
   subtitle: "Click the icons above to see more details!",
   media: { // technically not core tab content, but overwritten when not previewed
+    id: 'backend-services',
     type: "custom",
     content: <ServiceMenu interactable={false}/>
   }

@@ -9,6 +9,7 @@ import pyDataManipulationImg from "../assets/img/py_data_manipulation.png";
 
 export const PyDataManipulationCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'python-data-manipulation',
     type: 'image',
     src: pyDataManipulationImg,
     alt: 'Code to populate weather data',

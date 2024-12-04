@@ -6,12 +6,15 @@ import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
 import { CoreTabContentData } from '@/types/TabContentTypes';
 import electronChessVideo from "../assets/vid/chess_analytics.mp4";
+import electronChessLQVideo from "../assets/vid/lq/chess_analytics.mp4";
 import electronChessPoster from "../assets/vid/poster/chess_analytics.webp";
 
 export const ElectronChessCoreTabContent: CoreTabContentData = {
   media: {
     type: 'video',
+    id: "electron-chess-analytics",
     src: electronChessVideo,
+    lqsrc: electronChessLQVideo,
     poster: electronChessPoster,
     alt: 'Electron Chess Analytics',
     dims: {h: 1920, w: 1080}

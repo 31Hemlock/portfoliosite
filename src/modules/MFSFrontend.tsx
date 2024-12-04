@@ -4,12 +4,15 @@ import { mainHeaderClasses, divider, paragraphClasses, leftMainHeaderClasses } f
 import { IntraSiteLinkWrapper, LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
 import mfsFrontendVideo from "../assets/vid/mfs_frontend.mp4";
+import mfsFrontendLQVideo from "../assets/vid/lq/mfs_frontend.mp4";
 import mfsFrontendPoster from "../assets/vid/poster/mfs_frontend.webp";
 
 export const MFSFrontendCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'mfs-frontend',
     type: 'video',
     src: mfsFrontendVideo,
+    lqsrc: mfsFrontendLQVideo,
     poster: mfsFrontendPoster,
     alt: 'Flow',
     dims: {h: 1920, w: 1000}

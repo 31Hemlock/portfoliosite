@@ -5,12 +5,15 @@ import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { CoreTabContentData } from '@/types/TabContentTypes';
 import powershellVideo from "../assets/vid/powershell.mp4";
+import powershellLQVideo from "../assets/vid/lq/powershell.mp4";
 import powershellPoster from "../assets/vid/poster/powershell.webp";
 
 export const PowershelLCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'powershell',
     type: 'video',
     src: powershellVideo,
+    lqsrc: powershellLQVideo,
     poster: powershellPoster,
     alt: 'Powershell',
     dims: {h: 1920, w:1080}

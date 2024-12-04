@@ -7,12 +7,15 @@ import { FunctionWrapper } from '@/components/FunctionWrapper';
 import { ObjectWrapper } from '@/components/ObjectWrapper';
 import { CodeLink } from '@/data/CodeLink';
 import puzzlrVideo from "../assets/vid/puzzlr.mp4";
+import puzzlrLQVideo from "../assets/vid/lq/puzzlr.mp4";
 import puzzlrPoster from "../assets/vid/poster/puzzlr.webp";
 
 export const PuzzlrCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'puzzlr',
     type: 'video',
     src: puzzlrVideo,
+    lqsrc: puzzlrLQVideo,
     poster: puzzlrPoster,
     alt: 'Puzzlr',
     dims: {h: 1920, w: 1080}

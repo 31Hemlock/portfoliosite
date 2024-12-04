@@ -7,14 +7,15 @@ import { CodeLink } from '@/data/CodeLink';
 import { LinkWrapper } from '@/components/LinkWrapper';
 import { SB } from '@/components/utils/SB';
 import visualStudioVideo from "../assets/vid/visual_studio.mp4";
+import visualStudioLQVideo from "../assets/vid/lq/visual_studio.mp4";
 import visualStudioPoster from "../assets/vid/poster/visual_studio.webp";
-
-const coverVidUrl = new URL('../assets/vid/visual_studio.mp4', import.meta.url).href;
 
 export const VisualStudioCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'visual-studio',
     type: 'video',
     src: visualStudioVideo,
+    lqsrc: visualStudioLQVideo,
     poster: visualStudioPoster,
     alt: 'Consulting project',
     dims: {h: 1920, w: 1080}

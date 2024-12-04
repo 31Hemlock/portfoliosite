@@ -1,14 +1,17 @@
 type dims = {h: number; w: number;}
 
 export interface BaseMedia {
+  id: string;
   type: 'image' | 'video';
   poster?: string;
   src: string;
+  lqsrc?: string;
   alt: string;
   dims?: dims;
 }
 
 export interface CustomMedia {
+  id: string;
   type: 'custom';
   content: React.ReactNode;
 }
