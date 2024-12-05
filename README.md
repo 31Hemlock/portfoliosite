@@ -4,9 +4,9 @@ This is a personal portfolio website coded in Typescript. It uses React and Vite
 
 ## How to Run
 
-`npm run dev`: Starts the development server (defaults to port :5173).
-`npm run host`: Starts the server and makes it available to other devices on your network.
-`npm run build`: Builds the project for deployment.
+- `npm run dev`: Starts the development server (defaults to port :5173).
+- `npm run host`: Starts the server and makes it available to other devices on your network.
+- `npm run build`: Builds the project for deployment.
 
 ## Design Strategy
 
