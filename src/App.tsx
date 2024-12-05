@@ -88,21 +88,20 @@ function App() {
             <Routes>
               {/* Data is exported from each component and passed to TabContent because we want to use their data to render a tab as well as a preview */}
               <Route path="/" element={<TabContent {...HomeTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite" element={<TabContent {...HomeTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ} />} />
-              <Route path="/portfoliosite/myfavoritesport-art-competition" element={<TabContent {...MFSFrontendTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/serverless-backend-api" element={<MFSBackend />} /> {/* uses state so has to be imported as a function rather than data */}
-              <Route path="/portfoliosite/icaf-responsive-design" element={<TabContent {...ICAFFrontendTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/tabletop-puzzle-game" element={<TabContent {...PuzzlrTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/electron-chess-analytics" element={<TabContent {...ElectronChessTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/python-data-manipulation" element={<TabContent {...PyDataManipulationTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/machine-learning" element={<TabContent {...MachineLearningTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/excel-formulas" element={<TabContent {...ExcelTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/powershell" element={<TabContent {...PowershellTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/flow" element={<TabContent {...FlowTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/sql-webcommerce" element={<TabContent {...SQLTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/webcommerce-project" element={<TabContent {...WebcommerceProjectTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/my-website" element={<TabContent {...MyWebsiteTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
-              <Route path="/portfoliosite/visual-studio" element={<TabContent {...VisualStudioTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/myfavoritesport-art-competition" element={<TabContent {...MFSFrontendTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/serverless-backend-api" element={<MFSBackend />} /> {/* uses state so has to be imported as a function rather than data */}
+              <Route path="/icaf-responsive-design" element={<TabContent {...ICAFFrontendTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/tabletop-puzzle-game" element={<TabContent {...PuzzlrTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/electron-chess-analytics" element={<TabContent {...ElectronChessTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/python-data-manipulation" element={<TabContent {...PyDataManipulationTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/machine-learning" element={<TabContent {...MachineLearningTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/excel-formulas" element={<TabContent {...ExcelTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/powershell" element={<TabContent {...PowershellTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/flow" element={<TabContent {...FlowTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/sql-webcommerce" element={<TabContent {...SQLTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/webcommerce-project" element={<TabContent {...WebcommerceProjectTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/my-website" element={<TabContent {...MyWebsiteTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
+              <Route path="/visual-studio" element={<TabContent {...VisualStudioTabContent} videoHQ={videoHQ} setVideoHQ={setVideoHQ}/>} />
             </Routes>
           </div>
         </div>

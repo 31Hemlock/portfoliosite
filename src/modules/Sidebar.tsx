@@ -6,7 +6,7 @@ import { sideNames, sideLinks, sideDetails } from '../data/SidebarData';
 const Sidebar: React.FC = () => {
     return (
         <div className="py-20 sm:p-14 bg-sidebar-base">
-            <Link to='/portfoliosite' className="text-header-white text-4xl font-normal mx-auto w-full text-center block hover:text-hover-highlight">Noah Zaranka</Link>
+            <Link to='/' className="text-header-white text-4xl font-normal mx-auto w-full text-center block hover:text-hover-highlight">Noah Zaranka</Link>
             <div className="mt-4 item-direction-for-left-scrollbar">
                 {sideNames.map((name, index) => (
                     <SidePop 

@@ -38,7 +38,7 @@ export const IntraSiteLinkWrapper: React.FC<IntraSiteLinkWrapperProps> = ({
   text = "here",
   newTab = false,
 }) => {
-  const basePath = "/portfoliosite";
+  const basePath = ""; // Unnecessary now that portfoliosite is removed as a prefix
   const fullPath = `${basePath}/${urlSuffix.replace(/^\//, "")}`;
 
   return (
@@ -59,7 +59,7 @@ export const PreviewLinkWrapper: React.FC<PreviewLinkWrapperProps> = ({
   newTab,
   children
 }) => {
-  const basePath = "/portfoliosite";
+  const basePath = ""; // Unnecessary now that portfoliosite is removed as a prefix
   const fullPath = `${basePath}/${urlSuffix.replace(/^\//, "")}`;
   return (
     <Link

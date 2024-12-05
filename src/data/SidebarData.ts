@@ -21,6 +21,6 @@ export const sideDetails = [sideArray1, sideArray2, sideArray3, sideArray4, side
 export const sideNames = [sidePop1, sidePop2, sidePop3, sidePop4, sidePop5, sidePop6]
 export const sideLinks = sideDetails.map(subArray => 
   subArray.map(item => 
-    'portfoliosite/' + item.toLowerCase().replace(/[^a-zA-Z ]/g, "").replace(/ /g, '-')
+    '/' + item.toLowerCase().replace(/[^a-zA-Z ]/g, "").replace(/ /g, '-')
   )
 );
