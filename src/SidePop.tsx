@@ -24,7 +24,7 @@ const SidePop: React.FC<SidePopProps> = ({ subtitles, title, links, mobileShowMe
       }
     }} 
   
-    to={`/${links[index]}`}>{subtitle}
+    to={`${links[index]}`}>{subtitle}
     </Link>
     );
 
