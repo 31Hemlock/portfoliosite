@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 
 export type Dimensions = {
-  windowWidth: number;
-  windowHeight: number;
-  orientation: "landscape" | "portrait";
+  windowWidth: number
+  windowHeight: number
+  orientation: 'landscape' | 'portrait'
 }
 
 function useWindowDimensions() {
-  const isClient = typeof window === "object"; // Check if window is defined
+  const isClient = typeof window === 'object' // Check if window is defined
 
   const [dimensions, setDimensions] = useState<Dimensions>({
     windowWidth: 0,
     windowHeight: 0,
-    orientation: "portrait",
-  });
-  const [touchScreenPrimary, setTouchScreenPrimary] = useState(false);
+    orientation: 'portrait',
+  })
+  const [touchScreenPrimary, setTouchScreenPrimary] = useState(false)
 
   useEffect(() => {
     if (!isClient) {
-      return; // Exit early if running on the server
+      return // Exit early if running on the server
     }
 
     function handleResize() {
@@ -26,31 +26,30 @@ function useWindowDimensions() {
         windowWidth: window.innerWidth,
         windowHeight: window.innerHeight,
         orientation:
-          window.innerWidth > window.innerHeight ? "landscape" : "portrait",
-      });
+          window.innerWidth > window.innerHeight ? 'landscape' : 'portrait',
+      })
     }
 
-    handleResize();
+    handleResize()
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize)
 
     const hasTouchScreen = () => {
-      return window.matchMedia("(pointer: coarse)").matches;
-    };
+      return window.matchMedia('(pointer: coarse)').matches
+    }
 
     if (hasTouchScreen()) {
-      setTouchScreenPrimary(true);
+      setTouchScreenPrimary(true)
     } else {
-      setTouchScreenPrimary(false);
+      setTouchScreenPrimary(false)
     }
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isClient]);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [isClient])
 
-  return {...dimensions, touchScreenPrimary};
+  return { ...dimensions, touchScreenPrimary }
 }
 
-
-export default useWindowDimensions;
+export default useWindowDimensions

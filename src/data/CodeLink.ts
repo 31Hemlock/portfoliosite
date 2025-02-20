@@ -1,1 +1,1 @@
-export const CodeLink = "https://github.com/31Hemlock/"
+export const CodeLink = 'https://github.com/31Hemlock/'

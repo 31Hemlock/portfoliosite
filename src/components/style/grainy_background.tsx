@@ -1,11 +1,12 @@
-
-
 interface GrainTextureProps {
-  frequency?: number;
-  opacity?: number;
+  frequency?: number
+  opacity?: number
 }
 
-export const GrainTexture: React.FC<GrainTextureProps> = ({ frequency, opacity }) => {
+export const GrainTexture: React.FC<GrainTextureProps> = ({
+  frequency,
+  opacity,
+}) => {
   return (
     <svg className="w-full h-full absolute top-0 left-0 pointer-events-none z-0">
       <filter id="noiseFilter">
@@ -20,8 +21,8 @@ export const GrainTexture: React.FC<GrainTextureProps> = ({ frequency, opacity }
         height="100%"
         filter="url(#noiseFilter)"
         fill="transparent"
-        style={{opacity: opacity || 1}}
+        style={{ opacity: opacity || 1 }}
       />
     </svg>
-  );
-};
+  )
+}

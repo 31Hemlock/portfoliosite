@@ -1,32 +1,36 @@
-import { linkClasses } from "@/types/TabContentTypes";
-import { Link } from "react-router-dom";
+import { linkClasses } from '@/types/TabContentTypes'
+import { Link } from 'react-router-dom'
 
 interface LinkWrapperProps {
-  url: string;
-  text?: string;
-  newTab?: boolean;
+  url: string
+  text?: string
+  newTab?: boolean
 }
 
 interface IntraSiteLinkWrapperProps {
-  urlSuffix: string;
-  text?: string;
-  newTab?: boolean;
+  urlSuffix: string
+  text?: string
+  newTab?: boolean
 }
 
 interface PreviewLinkWrapperProps {
-  className: string;
-  urlSuffix: string;
-  newTab?: boolean;
-  children: React.ReactNode;
+  className: string
+  urlSuffix: string
+  newTab?: boolean
+  children: React.ReactNode
 }
 
-export const LinkWrapper: React.FC<LinkWrapperProps> = ({ url, text="here", newTab=true }) => {
+export const LinkWrapper: React.FC<LinkWrapperProps> = ({
+  url,
+  text = 'here',
+  newTab = true,
+}) => {
   return (
-    <a 
-    className={`${linkClasses}`}
-    href={url}
-    target={newTab ? "_blank" : undefined}
-    rel={newTab ? "noopener noreferrer" : undefined}
+    <a
+      className={`${linkClasses}`}
+      href={url}
+      target={newTab ? '_blank' : undefined}
+      rel={newTab ? 'noopener noreferrer' : undefined}
     >
       {text}
     </a>
@@ -35,40 +39,40 @@ export const LinkWrapper: React.FC<LinkWrapperProps> = ({ url, text="here", newT
 
 export const IntraSiteLinkWrapper: React.FC<IntraSiteLinkWrapperProps> = ({
   urlSuffix,
-  text = "here",
+  text = 'here',
   newTab = false,
 }) => {
-  const basePath = ""; // Unnecessary now that portfoliosite is removed as a prefix
-  const fullPath = `${basePath}/${urlSuffix.replace(/^\//, "")}`;
+  const basePath = '' // Unnecessary now that portfoliosite is removed as a prefix
+  const fullPath = `${basePath}/${urlSuffix.replace(/^\//, '')}`
 
   return (
     <Link
       className={linkClasses}
       to={fullPath}
-      target={newTab ? "_blank" : undefined}
-      rel={newTab ? "noopener noreferrer" : undefined}
+      target={newTab ? '_blank' : undefined}
+      rel={newTab ? 'noopener noreferrer' : undefined}
     >
       {text}
     </Link>
-  );
-};
+  )
+}
 
 export const PreviewLinkWrapper: React.FC<PreviewLinkWrapperProps> = ({
   className,
   urlSuffix,
   newTab,
-  children
+  children,
 }) => {
-  const basePath = ""; // Unnecessary now that portfoliosite is removed as a prefix
-  const fullPath = `${basePath}/${urlSuffix.replace(/^\//, "")}`;
+  const basePath = '' // Unnecessary now that portfoliosite is removed as a prefix
+  const fullPath = `${basePath}/${urlSuffix.replace(/^\//, '')}`
   return (
     <Link
-    className={`${className}`}
-    to={fullPath}
-    target={newTab ? "_blank" : undefined}
-    rel={newTab ? "noopener noreferrer" : undefined}
-  >
-    {children}
-  </Link>
+      className={`${className}`}
+      to={fullPath}
+      target={newTab ? '_blank' : undefined}
+      rel={newTab ? 'noopener noreferrer' : undefined}
+    >
+      {children}
+    </Link>
   )
 }

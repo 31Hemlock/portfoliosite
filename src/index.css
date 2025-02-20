@@ -9,8 +9,8 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,24 +22,25 @@
   height: 100%;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
 .animateButton:hover {
-  color:#FCFDFE;
-  text-decoration:none;
-  background-color:#2b3135;
+  color: #fcfdfe;
+  text-decoration: none;
+  background-color: #2b3135;
 }
 .hide-scrollbar::-webkit-scrollbar {
-  display:none; /* Chromium, Safari */
+  display: none; /* Chromium, Safari */
 }
 
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .custom-main-scrollbar::-webkit-scrollbar {
@@ -55,7 +56,9 @@ html, body {
 .custom-main-scrollbar::-webkit-scrollbar-thumb {
   background-color: white;
   border-radius: 2px;
-  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition:
+    background-color 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
   opacity: 0.5;
 }
 
@@ -79,9 +82,11 @@ html, body {
 }
 
 .custom-side-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #FCFDFE;
+  background-color: #fcfdfe;
   border-radius: 2px;
-  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition:
+    background-color 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
   opacity: 0.5;
 }
 
@@ -93,9 +98,6 @@ html, body {
 .item-direction-for-left-scrollbar {
   direction: ltr;
 }
-
-
-
 
 a {
   color: black;

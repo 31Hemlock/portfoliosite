@@ -1,9 +1,9 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react'
 
 interface SBProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const SB: React.FC<SBProps> = ({ children }) => {
-  return <b className="font-semibold">{children}</b>;
-};
+  return <b className="font-semibold">{children}</b>
+}
