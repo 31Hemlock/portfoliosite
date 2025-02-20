@@ -8,6 +8,7 @@ import excelImage from '../assets/img/excel.png';
 
 export const ExcelCoreTabContent: CoreTabContentData = {
   media: {
+    id: 'excel',
     type: 'image',
     src: excelImage,
     alt: 'Excel',
