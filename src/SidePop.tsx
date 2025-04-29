@@ -42,7 +42,7 @@ const SidePop: React.FC<SidePopProps> = ({
           <h5 className="text-header-white block w-full border-b py-4 text-lg ">
             {title}
           </h5>
-          <div className="text-subheader-white font-normal block w-full text-sm font-thin">
+          <div className="text-subheader-white font-normal block w-full text-sm">
             {listItems}
           </div>
         </div>
@@ -55,7 +55,7 @@ const SidePop: React.FC<SidePopProps> = ({
           <h5 className="text-header-white block w-full border-b py-4 text-lg ">
             {title}
           </h5>
-          <div className="text-subheader-white font-normal block w-full text-sm font-extralight">
+          <div className="text-subheader-white font-normal block w-full text-sm">
             {listItems}
           </div>
         </div>

@@ -33,7 +33,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
       <div className="w-full mx-auto px-6 py-2">
         <Link
           to="/"
-          className="text-header-white mx-auto text-center block text-3xl  hover:text-hover-highlight w-max "
+          className="text-header-white mx-auto text-center block text-3xl  hover:text-hover-highlight w-max duration-100"
           onClick={() => setMobileShowMenu(false)}
         >
           Noah Zaranka
@@ -43,6 +43,13 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
         className={`px-16 grid transition-all duration-[400ms] ${mobileShowMenu ? 'grid-rows-[1fr] opacity-100 blur-none' : 'grid-rows-[0fr] opacity-0 blur-xl'}`}
       >
         <div className="overflow-hidden">
+          <Link
+            to="/resume"
+            className="text-header-white text-left block text-xl hover:text-hover-highlight border-b-2 duration-100 pb-4 w-full"
+            onClick={() => setMobileShowMenu(false)}
+          >
+            Resume
+          </Link>
           {sideNames.map((name, index) => (
             <SidePop
               key={index}

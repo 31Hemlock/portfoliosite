@@ -20,6 +20,7 @@ import { MFSFrontendTabContent } from './modules/MFSFrontend'
 import ScrollToTop from './components/utils/ScrollToTop'
 import { PuzzlrTabContent } from './modules/Puzzlr'
 import { TabContent } from './TabContent'
+import { ResumeTabContent } from './modules/Resume'
 
 function App() {
   const { orientation } = useWindowDimensions()
@@ -240,6 +241,16 @@ function App() {
                 element={
                   <TabContent
                     {...VisualStudioTabContent}
+                    videoHQ={videoHQ}
+                    setVideoHQ={setVideoHQ}
+                  />
+                }
+              />
+              <Route
+                path="/resume"
+                element={
+                  <TabContent
+                    {...ResumeTabContent}
                     videoHQ={videoHQ}
                     setVideoHQ={setVideoHQ}
                   />
