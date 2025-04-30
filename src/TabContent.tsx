@@ -11,6 +11,7 @@ interface TabContentProps {
   dimensions?: string[]
   videoHQ: boolean
   setVideoHQ: React.Dispatch<React.SetStateAction<boolean>>
+  padded?: boolean
 }
 
 const MediaContent: React.FC<{
@@ -148,10 +149,11 @@ export const TabContent: React.FC<TabContentProps> = ({
   sourceCode,
   videoHQ,
   setVideoHQ,
+  padded = true,
 }) => {
   return (
     <div
-      className={`p-4 md:p-12 xl:p-20 mx-auto z-10 relative overflow-x-hidden flex flex-col place-content-around gap-4`}
+      className={`${padded && 'p-4 md:p-12 xl:p-20'} mx-auto z-10 relative overflow-x-hidden flex flex-col place-content-around gap-4`}
     >
       {title && (
         <div className="grid relative ">

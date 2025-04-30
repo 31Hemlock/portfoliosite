@@ -99,6 +99,12 @@ body {
   direction: ltr;
 }
 
+.resume-iframe {
+  width: 100%;
+  aspect-ratio: 8.5 / 11.3;
+  border: 0;
+}
+
 a {
   color: black;
   text-decoration: inherit;

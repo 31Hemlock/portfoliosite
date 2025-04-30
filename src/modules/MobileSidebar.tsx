@@ -21,7 +21,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
     import.meta.url
   ).href
   return (
-    <>
+    <div className="w-full py-6">
       <div
         className="p-6 pt-3 right-0 cursor-pointer w-fit absolute"
         onClick={() => toggleMobileShowMenu()}
@@ -45,7 +45,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
         <div className="overflow-hidden">
           <Link
             to="/resume"
-            className="text-header-white text-left block text-xl hover:text-hover-highlight border-b-2 duration-100 pb-4 w-full"
+            className="text-header-white text-left block text-xl hover:text-hover-highlight border-b-2 duration-100 pb-4 pt-2 w-full"
             onClick={() => setMobileShowMenu(false)}
           >
             Resume
@@ -64,7 +64,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
           ))}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

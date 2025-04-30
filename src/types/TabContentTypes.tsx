@@ -26,6 +26,8 @@ export interface CoreTabContentData {
   subtitle?: string
   sourceCode?: string
   link?: string
+  hideSidebar?: boolean
+  padded?: boolean
 }
 
 export interface TabContentData extends CoreTabContentData {
@@ -50,6 +52,8 @@ export const subheaderDivider = <div className="border-b border-grey" />
 export const paragraphClasses = 'prose prose-lg pt-4 pb-4 text-textcolor'
 export const linkClasses =
   'text-blue-600 visited:text-purple-600 cursor-pointer'
+export const buttonClasses =
+  'text-black rounded-md visited:text-purple-600 cursor-pointer bg-card hover:bg-card-highlight'
 
 export const functionClasses =
   'font-mono text-sm bg-gray-100 px-1 py-0.5 rounded text-gray-700'
