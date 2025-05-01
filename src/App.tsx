@@ -31,6 +31,15 @@ function App() {
   const [mobileShowMenu, setMobileShowMenu] = useState(false)
   const scrollableDivRef = useRef(null)
   const [sidebarHidden, setSidebarHidden] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(0)
+
+  // Track window width
+  useEffect(() => {
+    const updateWidth = () => setWindowWidth(window.innerWidth)
+    updateWidth() // Set initial value
+    window.addEventListener('resize', updateWidth)
+    return () => window.removeEventListener('resize', updateWidth)
+  }, [])
 
   // measure network performance on page load
   useEffect(() => {
@@ -77,7 +86,7 @@ function App() {
   useEffect(() => {
     const widthThreshold = 1400
     const isResumePath = location.pathname === '/resume'
-    const isNarrowScreen = window.innerWidth < widthThreshold
+    const isNarrowScreen = windowWidth < widthThreshold
 
     if (isResumePath && isNarrowScreen && !sidebarHidden) {
       setSidebarHidden(true)
@@ -122,9 +131,9 @@ function App() {
               className={` fixed xl:m-4 xl:p-2 lg:m-2 lg:p-2 z-50  text-black hover:text-hover-highlight bg-card transition-colors`}
             >
               {sidebarHidden ? (
-                <PanelLeftOpen size={window.innerWidth < 1280 ? 16 : 24} />
+                <PanelLeftOpen size={windowWidth < 1280 ? 16 : 24} />
               ) : (
-                <PanelLeftClose size={window.innerWidth < 1280 ? 16 : 24} />
+                <PanelLeftClose size={windowWidth < 1280 ? 16 : 24} />
               )}
             </button>
           )}
