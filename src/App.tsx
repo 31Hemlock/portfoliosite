@@ -119,12 +119,12 @@ function App() {
           {orientationString == 'landscape' && (
             <button
               onClick={() => setSidebarHidden((prev) => !prev)}
-              className={` fixed m-4 z-50 p-2 text-black hover:text-hover-highlight bg-card transition-colors`}
+              className={` fixed xl:m-4 xl:p-2 lg:m-2 lg:p-2 z-50  text-black hover:text-hover-highlight bg-card transition-colors`}
             >
               {sidebarHidden ? (
-                <PanelLeftOpen size={24} />
+                <PanelLeftOpen size={window.innerWidth < 1280 ? 16 : 24} />
               ) : (
-                <PanelLeftClose size={24} />
+                <PanelLeftClose size={window.innerWidth < 1280 ? 16 : 24} />
               )}
             </button>
           )}
