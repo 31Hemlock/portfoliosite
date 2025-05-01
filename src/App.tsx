@@ -96,7 +96,7 @@ function App() {
                 max-h-[95%] flex-grow relative m-auto w-[95%] md:w-[80%] max-w-[1400px] flex row-start-1 col-start-1 h-full justify-center`}
       >
         <div
-          className={`flex-shrink-0 bg-sidebar-base overflow-auto custom-main-scrollbar max-h-full ${orientationString === 'landscape' ? 'custom-side-scrollbar' : ''}`}
+          className={`flex-shrink-0 bg-sidebar-base overflow-y-auto overflow-x-hidden custom-main-scrollbar max-h-full ${orientationString === 'landscape' ? 'custom-side-scrollbar' : ''}`}
         >
           {orientationString === 'landscape' ? (
             <Sidebar
