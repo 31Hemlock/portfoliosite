@@ -14,11 +14,7 @@ export const ResumeTabContent: TabContentData = {
     <div className="px-4 py-4 w-full max-w-[800px] mx-auto">
       <div className=" flex place-content-center gap-4 mx-auto w-full mb-4 text-center">
         <ResumeButton url="/" text="Return home" />
-        <ResumeButton
-          url="/public/resume.pdf"
-          download={true}
-          text="Download PDF"
-        />
+        <ResumeButton url="/resume.pdf" download={true} text="Download PDF" />
       </div>
       <ResumePdf />
     </div>
