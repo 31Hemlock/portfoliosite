@@ -122,7 +122,7 @@ function App() {
         <div
           ref={scrollableDivRef}
           className={`${orientationString == 'landscape' ? 'col-start-1 row-start-1' : 'col-start-1 row-start-2'} 
-              bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 flex-grow
+              bg-linear-to-r from-slate-200 via-slate-100 to-slate-200 grow
               mb-0 col-start-2 w-full overflow-y-scroll custom-main-scrollbar `}
         >
           {orientationString == 'landscape' && (

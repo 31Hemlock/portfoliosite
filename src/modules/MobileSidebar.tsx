@@ -28,7 +28,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
       >
         {' '}
         {/* Clickable area of the menu */}
-        <img className=" w-[32px] h-[32px]  " src={threeBarsUrl} alt="Menu" />
+        <img className=" w-8 h-8  " src={threeBarsUrl} alt="Menu" />
       </div>
       <div className="w-full mx-auto px-6 py-2">
         <Link
@@ -40,7 +40,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
         </Link>
       </div>
       <div
-        className={`px-16 grid transition-all duration-[400ms] ${mobileShowMenu ? 'grid-rows-[1fr] opacity-100 blur-none' : 'grid-rows-[0fr] opacity-0 blur-xl'}`}
+        className={`px-16 grid transition-all duration-[400] ${mobileShowMenu ? 'grid-rows-[1fr] opacity-100 blur-none' : 'grid-rows-[0fr] opacity-0 blur-xl'}`}
       >
         <div className="overflow-hidden">
           <Link

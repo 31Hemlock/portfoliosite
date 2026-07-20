@@ -1,6 +1,27 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-2xl: 90rem;
+  --breakpoint-3xl: 100rem;
+
+  --color-background: #1f2937;
+  --color-background-two: #8e0c11;
+  --color-textcolor: #000000;
+  --color-sidebar-base: #010a0d;
+  --color-header-white: #fcfdfe;
+  --color-subheader-white: #fcfdfe;
+  --color-sidebar-border: #fcfdfe;
+  --color-content-tab: #c1dceb;
+  --color-content-tab-two: #bbe6f2;
+  --color-hover-highlight: #3b82f6;
+  --color-card: #fcfdfe;
+
+  --background-image-base-pattern: url('./assets/felt/Gcc8lM_WEAAtHqH.png');
+  --background-image-card-texture: url('./assets/felt/painted-plaster-4717-in-architextures.jpg');
+
+  --font-weight-hairline: 100;
+  --font-weight-extra-bold: 800;
+}
 
 #content {
   max-width: 1280px;
