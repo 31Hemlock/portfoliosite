@@ -94,7 +94,7 @@ function App() {
   }, [location.pathname])
 
   return (
-    <div className="grid grid-cols-1 grid-rows-1 w-full h-full object-cover overflow-hidden bg-gradient-to-bl from-slate-800 via-slate-900 to-slate-800">
+    <div className="grid grid-cols-1 grid-rows-1 w-full h-full object-cover overflow-hidden bg-linear-to-bl from-slate-800 via-slate-900 to-slate-800">
       {' '}
       {/*  bg-base-pattern   bg-gradient-to-r from-violet-500 to-fuchsia-500  */}
       {/* <GrainTexture/> */}
@@ -102,10 +102,10 @@ function App() {
       <div
         className={` 
                 ${orientationString === 'landscape' ? 'flex-row  md:max-h-[90vh]' : 'flex-col'} 
-                max-h-[95%] flex-grow relative m-auto w-[95%] md:w-[80%] max-w-[1400px] flex row-start-1 col-start-1 h-full justify-center`}
+                max-h-[95%] grow relative m-auto w-[95%] md:w-[80%] max-w-350 flex row-start-1 col-start-1 h-full justify-center`}
       >
         <div
-          className={`flex-shrink-0 bg-sidebar-base overflow-y-auto overflow-x-hidden custom-main-scrollbar max-h-full ${orientationString === 'landscape' ? 'custom-side-scrollbar' : ''}`}
+          className={`shrink-0 bg-sidebar-base overflow-y-auto overflow-x-hidden custom-main-scrollbar max-h-full ${orientationString === 'landscape' ? 'custom-side-scrollbar' : ''}`}
         >
           {orientationString === 'landscape' ? (
             <Sidebar
