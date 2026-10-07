@@ -53,7 +53,7 @@ export const paragraphClasses = 'prose prose-lg pt-4 pb-4 text-textcolor'
 export const linkClasses =
   'text-blue-600 visited:text-purple-600 cursor-pointer'
 export const buttonClasses =
-  'text-black rounded-md visited:text-purple-600 cursor-pointer bg-card hover:bg-card-highlight'
+  'inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-md bg-card px-5 py-2.5 font-medium text-black cursor-pointer transition-all duration-150 hover:bg-blue-50 hover:text-hover-highlight hover:shadow-md'
 
 export const functionClasses =
   'font-mono text-sm bg-gray-100 px-1 py-0.5 rounded text-gray-700'

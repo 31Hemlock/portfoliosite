@@ -26,7 +26,7 @@ export const ResumeButton: React.FC<ButtonProps> = ({
         target={newTab ? '_blank' : undefined}
         rel={newTab ? 'noopener noreferrer' : undefined}
       >
-        <button className={buttonClasses}>{text}</button>
+        {text}
       </a>
     )
   }
@@ -39,7 +39,7 @@ export const ResumeButton: React.FC<ButtonProps> = ({
       target={newTab ? '_blank' : undefined}
       rel={newTab ? 'noopener noreferrer' : undefined}
     >
-      <button className={buttonClasses}>{text}</button>
+      {text}
     </Link>
   )
 }
