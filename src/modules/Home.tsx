@@ -6,7 +6,7 @@ import {
   paragraphClasses,
 } from '@/types/TabContentTypes'
 import { ComponentPreview } from '@/components/ComponentPreview'
-import { ICAFFrontendCoreTabContent } from './ICAFFrontend'
+import { ICAFWebsiteCoreTabContent } from './ICAFWebsite'
 import { MFSFrontendCoreTabContent } from './MFSFrontend'
 import { PuzzlrCoreTabContent } from './Puzzlr'
 import { MFSBackendCoreTabContent } from './MFSBackend'
@@ -26,10 +26,10 @@ export const HomeTabContent: TabContentData = {
         </p>
       </ContentCard>
       <div className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-4">
+        <ComponentPreview {...ICAFWebsiteCoreTabContent} />
         <ComponentPreview {...MFSFrontendCoreTabContent} />
         <ComponentPreview {...MFSBackendCoreTabContent} />
         <ComponentPreview {...PuzzlrCoreTabContent} />
-        <ComponentPreview {...ICAFFrontendCoreTabContent} />
       </div>
     </>
   ),

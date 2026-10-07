@@ -139,6 +139,16 @@ const MediaContent: React.FC<{
     )
   }
 
+  if (media.type === 'image') {
+    return (
+      <img
+        src={media.src}
+        alt={media.alt}
+        className="w-full h-auto object-contain shadow-md"
+      />
+    )
+  }
+
   return null
 }
 

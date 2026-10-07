@@ -1,6 +1,7 @@
 const sidePop1 = 'Frontend Development'
 const sideArray1 = [
   'MyFavoriteSport Art Competition',
+  'ICAF Website',
   'ICAF Responsive Design',
   'My Website',
   'Flow',

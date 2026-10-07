@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { useState, useRef, useEffect, type SetStateAction } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import Sidebar from './modules/Sidebar'
 import { HomeTabContent } from './modules/Home'
 import MFSBackend from './modules/MFSBackend'
@@ -11,6 +11,7 @@ import { PowershellTabContent } from './modules/Powershell'
 import { FlowTabContent } from './modules/Flow'
 import { SQLTabContent } from './modules/SQL'
 import { ICAFFrontendTabContent } from './modules/ICAFFrontend'
+import { ICAFWebsiteTabContent } from './modules/ICAFWebsite'
 import { VisualStudioTabContent } from './modules/VisualStudio'
 import { WebcommerceProjectTabContent } from './modules/WebcommerceProject'
 import { MyWebsiteTabContent } from './modules/MyWebsite'
@@ -25,18 +26,44 @@ import { PanelLeftOpen, PanelLeftClose } from 'lucide-react'
 import { useLocation } from 'react-router-dom'
 
 function App() {
+  const location = useLocation()
   const { orientation } = useWindowDimensions()
   const [videoHQ, setVideoHQ] = useState(false)
   const orientationString = orientation
   const [mobileShowMenu, setMobileShowMenu] = useState(false)
   const scrollableDivRef = useRef(null)
-  const [sidebarHidden, setSidebarHidden] = useState(false)
-  const [windowWidth, setWindowWidth] = useState(0)
+  const [windowWidth, setWindowWidth] = useState(() => window.innerWidth)
+  const shouldAutoHideSidebar =
+    location.pathname === '/resume' && windowWidth < 1400
+  const [sidebarState, setSidebarState] = useState(() => ({
+    pathname: location.pathname,
+    hidden: shouldAutoHideSidebar,
+  }))
+  const sidebarHidden =
+    sidebarState.pathname === location.pathname
+      ? sidebarState.hidden
+      : shouldAutoHideSidebar
+
+  const setSidebarHidden = (nextHidden: SetStateAction<boolean>) => {
+    setSidebarState((current) => {
+      const currentHidden =
+        current.pathname === location.pathname
+          ? current.hidden
+          : shouldAutoHideSidebar
+
+      return {
+        pathname: location.pathname,
+        hidden:
+          typeof nextHidden === 'function'
+            ? nextHidden(currentHidden)
+            : nextHidden,
+      }
+    })
+  }
 
   // Track window width
   useEffect(() => {
     const updateWidth = () => setWindowWidth(window.innerWidth)
-    updateWidth() // Set initial value
     window.addEventListener('resize', updateWidth)
     return () => window.removeEventListener('resize', updateWidth)
   }, [])
@@ -80,18 +107,6 @@ function App() {
       window.removeEventListener('load', measurePerformance)
     }
   }, [])
-
-  const location = useLocation()
-
-  useEffect(() => {
-    const widthThreshold = 1400
-    const isResumePath = location.pathname === '/resume'
-    const isNarrowScreen = windowWidth < widthThreshold
-
-    if (isResumePath && isNarrowScreen && !sidebarHidden) {
-      setSidebarHidden(true)
-    }
-  }, [location.pathname])
 
   return (
     <div className="grid grid-cols-1 grid-rows-1 w-full h-full object-cover overflow-hidden bg-linear-to-bl from-slate-800 via-slate-900 to-slate-800">
@@ -162,6 +177,16 @@ function App() {
             />
             <Route path="/serverless-backend-api" element={<MFSBackend />} />{' '}
             {/* uses state so has to be imported as a function rather than data */}
+            <Route
+              path="/icaf-website"
+              element={
+                <TabContent
+                  {...ICAFWebsiteTabContent}
+                  videoHQ={videoHQ}
+                  setVideoHQ={setVideoHQ}
+                />
+              }
+            />
             <Route
               path="/icaf-responsive-design"
               element={
